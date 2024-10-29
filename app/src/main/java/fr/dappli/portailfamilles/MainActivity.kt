@@ -9,9 +9,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
+import fr.dappli.portailfamilles.core.data.api.LoginDataSource
+import fr.dappli.portailfamilles.core.data.remote.LoginDataSourceImpl
 import fr.dappli.portailfamilles.ui.theme.PortailFamillesTheme
 
 @AndroidEntryPoint
@@ -26,6 +29,10 @@ class MainActivity : ComponentActivity() {
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
+                }
+                LaunchedEffect(Unit) {
+                    val dataSource: LoginDataSource = LoginDataSourceImpl()
+                    println("${dataSource.login("a", "b")}")
                 }
             }
         }

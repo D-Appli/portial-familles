@@ -54,6 +54,8 @@ dependencies {
     implementation(libs.hilt.android)
     implementation(libs.ktor.client.okhttp)
 
+    implementation(projects.core.data.remote)
+
     ksp(libs.hilt.compiler)
 
     testImplementation(libs.junit)
