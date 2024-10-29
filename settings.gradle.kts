@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Portail Familles"
 include(":app")
+include(":core:data:api")
