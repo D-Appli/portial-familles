@@ -12,20 +12,21 @@ import kotlinx.serialization.Serializable
 class LoginDataSourceImpl(
     private val client: HttpClient
 ) : LoginDataSource {
-    override suspend fun login(username: String, password: String) {
-        val user = User(username, password)
+    override suspend fun login(username: String, password: String, captcha: String) {
+        val loginModel = LoginModel(username, password, captcha)
         client.post {
             url {
                 path("login")
             }
             contentType(ContentType.Application.Json)
-            setBody(user)
+            setBody(loginModel)
         }
     }
 }
 
 @Serializable
-data class User(
+data class LoginModel(
     val username: String,
-    val password: String
+    val password: String,
+    val captcha: String,
 )
