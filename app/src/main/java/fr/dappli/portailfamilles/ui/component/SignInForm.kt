@@ -20,7 +20,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
-fun SignInForm() {
+fun SignInForm(onTokenReceived: (String) -> Unit) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -44,11 +44,11 @@ fun SignInForm() {
                         domStorageEnabled = true
                         textZoom = 100
                     }
-                    addJavascriptInterface(WebCallback(), PLATFORM)
+                    addJavascriptInterface(WebCallback(onTokenReceived), PLATFORM)
                 }
             },
             update = { webView ->
-                webView.loadUrl("https://deuillabarre.portail-familles.com/login")
+                webView.loadUrl(LOGIN_URL)
             }
         )
     }
@@ -101,17 +101,20 @@ private class SiteWebViewClient : WebViewClient() {
         error: WebResourceError?,
     ) {
         super.onReceivedError(view, request, error)
-        println("andrei webview client error ${error?.errorCode} ${error?.description}")
+        println("webview client error ${error?.errorCode} ${error?.description}")
     }
 }
 
-private class WebCallback() {
+private class WebCallback(
+    private val onTokenReceived: (String) -> Unit
+) {
 
     @JavascriptInterface
     @Keep
     fun onUrlChanged(newUrl: String, token: String?) {
-        println("andrei newUrl: $newUrl, token=$token")
+        token?.let { onTokenReceived(it) }
     }
 }
 
 private const val PLATFORM = "Android"
+private const val LOGIN_URL = "https://deuillabarre.portail-familles.com/login"
