@@ -12,8 +12,10 @@ data object IdentityRoute
 
 fun NavController.navigateToIdentity(navOptions: NavOptions) = navigate(route = IdentityRoute, navOptions)
 
-fun NavGraphBuilder.identityScreen() {
+fun NavGraphBuilder.identityScreen(
+    onSignedIn: (String, String) -> Unit
+) {
     composable<IdentityRoute> {
-        IdentityScreen()
+        IdentityScreen(onSignedIn)
     }
 }

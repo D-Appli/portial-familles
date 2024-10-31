@@ -57,6 +57,7 @@ dependencies {
 
     // project features
     implementation(projects.feature.identity)
+    implementation(projects.feature.reservation)
     // project libraries
     implementation(projects.core.data.remote)
 

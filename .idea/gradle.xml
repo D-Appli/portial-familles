@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/core/data/remote" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/identity" />
+            <option value="$PROJECT_DIR$/feature/reservation" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
