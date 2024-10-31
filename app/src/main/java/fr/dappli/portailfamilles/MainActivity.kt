@@ -21,6 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import fr.dappli.portailfamilles.core.data.api.UserDataSource
 import fr.dappli.portailfamilles.core.data.remote.UserDataSourceImpl
 import fr.dappli.portailfamilles.core.data.remote.network.NetworkImpl
+import fr.dappli.portailfamilles.ui.PortailFamillesApp
 import fr.dappli.portailfamilles.ui.component.SignInForm
 import fr.dappli.portailfamilles.ui.theme.PortailFamillesTheme
 
