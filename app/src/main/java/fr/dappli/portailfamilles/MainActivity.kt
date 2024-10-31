@@ -33,8 +33,8 @@ class MainActivity : ComponentActivity() {
             PortailFamillesTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Column(Modifier.padding(innerPadding)) {
-                        var token: String? by remember { mutableStateOf(null) }
-                        token?.let { bearerToken ->
+                        var connectionData: Pair<String, String>? by remember { mutableStateOf(null) }
+                        connectionData?.let { data ->
                             var name: String? by remember { mutableStateOf(null) }
                             name?.let {
                                 Greeting(
@@ -45,10 +45,10 @@ class MainActivity : ComponentActivity() {
                             LaunchedEffect(Unit) {
                                 val network = NetworkImpl()
                                 val dataSource: UserDataSource = UserDataSourceImpl(network.client)
-                                name = dataSource.getUser("28141B", bearerToken)
+                                name = dataSource.getUser(data.first, data.second)
                             }
-                        } ?: SignInForm {
-                            token = it
+                        } ?: SignInForm { username, token ->
+                            connectionData = username to token
                         }
                     }
                 }

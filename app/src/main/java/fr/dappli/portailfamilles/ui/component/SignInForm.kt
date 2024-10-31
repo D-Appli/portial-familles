@@ -20,7 +20,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
-fun SignInForm(onTokenReceived: (String) -> Unit) {
+fun SignInForm(onTokenReceived: (String, String) -> Unit) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -67,7 +67,9 @@ private class SiteWebViewClient : WebViewClient() {
             val jsCode = """
                     (function() {
                         function notifyUrlChange() {
-                            Android.onUrlChanged(window.location.href, localStorage.getItem("token"));
+                            let usernameInput = document.querySelector('input[name="email"]');
+                            let username = (usernameInput !== null) ? usernameInput.value : null
+                            Android.onUrlChanged(window.location.href, username, localStorage.getItem("token"));
                         }
 
                         // Monitor URL changes via popstate (history navigation)
@@ -106,13 +108,15 @@ private class SiteWebViewClient : WebViewClient() {
 }
 
 private class WebCallback(
-    private val onTokenReceived: (String) -> Unit
+    private val onTokenReceived: (String, String) -> Unit
 ) {
 
     @JavascriptInterface
     @Keep
-    fun onUrlChanged(newUrl: String, token: String?) {
-        token?.let { onTokenReceived(it) }
+    fun onUrlChanged(newUrl: String, username: String?, token: String?) {
+        if (username != null && token != null) {
+            onTokenReceived(username, token)
+        }
     }
 }
 
