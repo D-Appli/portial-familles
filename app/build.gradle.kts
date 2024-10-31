@@ -53,7 +53,11 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.hilt.android)
     implementation(libs.ktor.client.okhttp)
+    implementation(libs.androidx.navigation.compose)
 
+    // project features
+    implementation(projects.feature.identity)
+    // project libraries
     implementation(projects.core.data.remote)
 
     ksp(libs.hilt.compiler)

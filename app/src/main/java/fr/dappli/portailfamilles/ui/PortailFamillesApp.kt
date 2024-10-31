@@ -16,11 +16,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import fr.dappli.portailfamilles.R
+import fr.dappli.portailfamilles.navigation.PortailFamillesNavHost
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PortailFamillesApp() {
-
+fun PortailFamillesApp(
+    appState: PortailFamillesAppState
+) {
     Scaffold(
         containerColor = Color.Transparent,
         contentColor = MaterialTheme.colorScheme.onBackground,
@@ -43,7 +45,7 @@ fun PortailFamillesApp() {
                 .padding(padding)
                 .consumeWindowInsets(padding)
         ) {
-            Text("TODO")
+            PortailFamillesNavHost(appState)
         }
     }
 }

@@ -1,4 +1,4 @@
-package fr.dappli.portailfamilles.ui.component
+package fr.dappli.portailfamilles.feature.indentity.ui.component
 
 import android.annotation.SuppressLint
 import android.view.View
@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
 
@@ -22,8 +21,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 @Composable
 fun SignInForm(onTokenReceived: (String, String) -> Unit) {
     Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
+        modifier = Modifier.fillMaxSize()
     ) {
 
         AndroidView(
