@@ -28,7 +28,7 @@ class IdentityScreenViewModelImpl @Inject constructor(
             val userId = persistentDataSource.getString(PersistenceKey.USER_ID.name)
             val token = persistentDataSource.getString(PersistenceKey.TOKEN.name)
             val action = if (userId != null && token != null) {
-                IdentityScreenAction.SetSignedIn(userId, token)
+                IdentityScreenAction.SetSignedIn(userId)
             } else {
                 IdentityScreenAction.SetSignedOut(bindCallToAction())
             }
@@ -44,11 +44,7 @@ class IdentityScreenViewModelImpl @Inject constructor(
         viewModelScope.launch(dispatcherProvider.io) {
             persistentDataSource.putString(PersistenceKey.USER_ID.name, userId)
             persistentDataSource.putString(PersistenceKey.TOKEN.name, token)
-            reducer.update(IdentityScreenAction.SetSignedIn(userId, token))
+            reducer.update(IdentityScreenAction.SetSignedIn(userId))
         }
-    }
-
-    private companion object {
-
     }
 }

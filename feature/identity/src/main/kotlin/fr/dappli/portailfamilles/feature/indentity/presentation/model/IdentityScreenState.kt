@@ -12,6 +12,5 @@ sealed class IdentityScreenState : State {
 
     data class SignedIn(
         val userId: String,
-        val token: String,
     ) : IdentityScreenState()
 }

@@ -19,13 +19,10 @@ class UserDataSourceImpl @Inject constructor(
     private val client: HttpClient
 ) : UserDataSource {
 
-    override suspend fun getUser(userId: String, token: String): String {
+    override suspend fun getUser(userId: String): String {
         val response = client.post {
             url {
                 path(PATH)
-            }
-            headers {
-                append(HttpHeaders.Authorization, "$BEARER_AUTH $token")
             }
             contentType(ContentType.Application.Json)
             setBody(UserIdModel(userId))

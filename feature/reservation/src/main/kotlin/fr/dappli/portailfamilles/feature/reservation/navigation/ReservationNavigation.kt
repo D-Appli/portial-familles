@@ -10,17 +10,16 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ReservationRoute(
-    val username: String,
-    val token: String
+    val userId: String
 )
 
 fun NavController.navigateToReservation(
-    username: String, token: String, navOptions: NavOptions? = null
-) = navigate(route = ReservationRoute(username, token), navOptions)
+    username: String, navOptions: NavOptions? = null
+) = navigate(route = ReservationRoute(username), navOptions)
 
 fun NavGraphBuilder.reservationScreen() {
     composable<ReservationRoute> {
         val route = it.toRoute<ReservationRoute>()
-        ReservationScreen(route.username, route.token)
+        ReservationScreen(route.userId)
     }
 }

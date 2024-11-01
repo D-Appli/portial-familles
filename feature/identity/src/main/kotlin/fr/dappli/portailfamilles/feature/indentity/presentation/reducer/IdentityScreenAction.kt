@@ -11,6 +11,5 @@ sealed class IdentityScreenAction : Action {
 
     data class SetSignedIn(
         val userId: String,
-        val token: String,
     ) : IdentityScreenAction()
 }
