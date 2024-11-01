@@ -13,8 +13,9 @@ import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
 import io.ktor.http.path
 import kotlinx.serialization.Serializable
+import javax.inject.Inject
 
-class UserDataSourceImpl(
+class UserDataSourceImpl @Inject constructor(
     private val client: HttpClient
 ) : UserDataSource {
 

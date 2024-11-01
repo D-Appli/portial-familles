@@ -7,22 +7,21 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import fr.dappli.portailfamilles.core.data.api.UserDataSource
-import fr.dappli.portailfamilles.core.data.remote.UserDataSourceImpl
-import fr.dappli.portailfamilles.core.data.remote.network.NetworkImpl
+import androidx.hilt.navigation.compose.hiltViewModel
+import fr.dappli.portailfamilles.feature.reservation.presentation.viewmodel.ReservationScreenViewModel
+import fr.dappli.portailfamilles.feature.reservation.presentation.viewmodel.ReservationScreenViewModelImpl
 
 @Composable
 internal fun ReservationScreen(
     username: String,
-    token: String
+    token: String,
+    viewModel: ReservationScreenViewModel = hiltViewModel<ReservationScreenViewModelImpl>()
 ) {
     var name: String? by remember { mutableStateOf(null) }
     name?.let {
         Text("Reservation pour $it")
     }
     LaunchedEffect(Unit) {
-        val network = NetworkImpl()
-        val dataSource: UserDataSource = UserDataSourceImpl(network.client)
-        name = dataSource.getUser(username, token)
+        name = viewModel.dataSource.getUser(username, token)
     }
 }

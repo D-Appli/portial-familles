@@ -59,6 +59,7 @@ dependencies {
     implementation(projects.feature.identity)
     implementation(projects.feature.reservation)
     // project libraries
+    implementation(projects.core.presentation)
     implementation(projects.core.data.remote)
 
     ksp(libs.hilt.compiler)
