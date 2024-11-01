@@ -2,7 +2,7 @@ package fr.dappli.portailfamilles.feature.indentity.presentation.reducer
 
 import fr.dappli.portailfamilles.core.kotlin.coroutines.providers.DispatcherProvider
 import fr.dappli.portailfamilles.core.presentation.state.StateReducer
-import fr.dappli.portailfamilles.feature.indentity.presentation.state.IdentityScreenState
+import fr.dappli.portailfamilles.feature.indentity.presentation.model.IdentityScreenState
 
 abstract class IdentityScreenReducer(
     initialState: IdentityScreenState,

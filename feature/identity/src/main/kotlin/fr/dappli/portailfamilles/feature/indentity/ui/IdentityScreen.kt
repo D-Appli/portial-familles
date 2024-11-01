@@ -1,11 +1,13 @@
 package fr.dappli.portailfamilles.feature.indentity.ui
 
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import fr.dappli.portailfamilles.feature.indentity.presentation.model.IdentityScreenState
+import fr.dappli.portailfamilles.feature.indentity.presentation.model.IdentityScreenState.SignedIn
+import fr.dappli.portailfamilles.feature.indentity.presentation.model.IdentityScreenState.SignedOut
 import fr.dappli.portailfamilles.feature.indentity.presentation.viewmodel.IdentityScreenViewModel
 import fr.dappli.portailfamilles.feature.indentity.presentation.viewmodel.IdentityScreenViewModelImpl
 import fr.dappli.portailfamilles.feature.indentity.ui.component.SignInForm
@@ -15,10 +17,20 @@ internal fun IdentityScreen(
     onSignedIn: (String, String) -> Unit,
     viewModel: IdentityScreenViewModel = hiltViewModel<IdentityScreenViewModelImpl>()
 ) {
-    var identityData: Pair<String, String>? by remember { mutableStateOf(null) }
-    identityData?.let { data ->
-        onSignedIn(data.first, data.second)
-    } ?: SignInForm { username, token ->
-        identityData = username to token
+    val state by viewModel.stateFlow.collectAsStateWithLifecycle()
+    when (val currentState = state) {
+        IdentityScreenState.None -> Unit
+
+        is SignedIn -> {
+            // TODO add animation
+            Text("Connected")
+            onSignedIn(currentState.userId, currentState.token)
+        }
+        is SignedOut -> {
+            SignInForm { userId, token ->
+                //identityData = username to token
+                currentState.onSignedIn(userId, token)
+            }
+        }
     }
 }

@@ -1,9 +1,10 @@
 package fr.dappli.portailfamilles.feature.indentity.presentation.reducer
 
 import fr.dappli.portailfamilles.core.kotlin.coroutines.providers.DispatcherProvider
-import fr.dappli.portailfamilles.feature.indentity.presentation.state.IdentityScreenState
+import fr.dappli.portailfamilles.feature.indentity.presentation.model.IdentityScreenState
+import javax.inject.Inject
 
-class IdentityScreenReducerImpl(
+class IdentityScreenReducerImpl @Inject constructor(
     dispatcherProvider: DispatcherProvider,
 ) : IdentityScreenReducer(
     initialState = IdentityScreenState.None,
@@ -14,7 +15,12 @@ class IdentityScreenReducerImpl(
         action: IdentityScreenAction,
         currentState: IdentityScreenState
     ): IdentityScreenState {
-        TODO("Not yet implemented")
+        return when (action) {
+            is IdentityScreenAction.SetSignedIn -> IdentityScreenState.SignedIn(action.userId, action.token)
+            is IdentityScreenAction.SetSignedOut -> IdentityScreenState.SignedOut(
+                action.callToActions.onSignedIn
+            )
+        }
     }
 
 }
