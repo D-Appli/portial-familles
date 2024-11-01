@@ -13,6 +13,6 @@ interface IdentityPresentationModule {
 
     @Binds
     fun provideIdentityScreenReducer(
-        identityScreenReducerImpl: IdentityScreenReducerImpl
+        reducer: IdentityScreenReducerImpl
     ): IdentityScreenReducer
 }

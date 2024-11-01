@@ -46,5 +46,6 @@ dependencies {
     // project libraries
     implementation(projects.core.presentation)
     implementation(projects.core.data.remote)
+    implementation(projects.core.data.local)
     implementation(projects.core.kotlin)
 }
