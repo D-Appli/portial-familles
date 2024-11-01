@@ -7,7 +7,10 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import fr.dappli.portailfamilles.core.data.api.PersistentDataSource
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class PersistentDataSourceImpl @Inject constructor(
@@ -21,14 +24,22 @@ class PersistentDataSourceImpl @Inject constructor(
         return data.firstOrNull()?.get(booleanPreferencesKey(key))
     }
 
+    override suspend fun getString(key: String): String? {
+        return data.firstOrNull()?.get(stringPreferencesKey(key))
+    }
+
+    override fun observeBoolean(key: String): Flow<Boolean> {
+        return getDataFlowFromKey(booleanPreferencesKey(key)).filterNotNull()
+    }
+
+    override fun observeString(key: String): Flow<String> {
+        return getDataFlowFromKey(stringPreferencesKey(key)).filterNotNull()
+    }
+
     override suspend fun putBoolean(key: String, value: Boolean) {
         preferences.edit { preferences ->
             preferences[booleanPreferencesKey(key)] = value
         }
-    }
-
-    override suspend fun getString(key: String): String? {
-        return data.firstOrNull()?.get(stringPreferencesKey(key))
     }
 
     override suspend fun putString(key: String, value: String) {
@@ -42,4 +53,8 @@ class PersistentDataSourceImpl @Inject constructor(
             preferences.remove(stringPreferencesKey(key))
         }
     }
+
+    private fun <T> getDataFlowFromKey(preferencesKey: Preferences.Key<T>): Flow<T?> = data
+        .filter { preferences -> preferences.contains(preferencesKey) }
+        .map { preferences -> preferences[preferencesKey]!! }
 }
