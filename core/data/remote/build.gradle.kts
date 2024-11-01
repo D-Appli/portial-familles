@@ -20,6 +20,7 @@ android {
 
 dependencies {
     implementation(libs.androidx.core.ktx)
+    implementation(libs.ktor.client.auth)
     implementation(libs.ktor.client.okhttp)
     implementation(libs.ktor.client.contentnegotiation)
     implementation(libs.ktor.serialization.kotlinx.json)

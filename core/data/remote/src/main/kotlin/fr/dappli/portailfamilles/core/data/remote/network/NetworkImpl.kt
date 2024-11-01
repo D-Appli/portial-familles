@@ -1,9 +1,14 @@
 package fr.dappli.portailfamilles.core.data.remote.network
 
+import fr.dappli.portailfamilles.core.data.api.PersistenceKey
+import fr.dappli.portailfamilles.core.data.api.PersistentDataSource
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.HttpTimeout
+import io.ktor.client.plugins.auth.Auth
+import io.ktor.client.plugins.auth.providers.BearerTokens
+import io.ktor.client.plugins.auth.providers.bearer
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.http.ContentType
@@ -12,6 +17,7 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
 class NetworkImpl(
+    persistentDataSource: PersistentDataSource,
     mockEngine: HttpClientEngine? = null,
 ) : Network {
 
@@ -34,6 +40,21 @@ class NetworkImpl(
 
         install(HttpTimeout) {
             requestTimeoutMillis = DEFAULT_REQUEST_TIMEOUT_MS
+        }
+
+        install(Auth) {
+            bearer {
+                loadTokens {
+                    val accessToken = persistentDataSource.getString(PersistenceKey.TOKEN.name)
+                    println("andrei loadTokens $accessToken")
+                    accessToken?.let { BearerTokens(accessToken, null) }
+                }
+                refreshTokens {
+                    println("andrei refreshTokens")
+                    persistentDataSource.remove(PersistenceKey.TOKEN.name)
+                    null
+                }
+            }
         }
 
         defaultRequest {

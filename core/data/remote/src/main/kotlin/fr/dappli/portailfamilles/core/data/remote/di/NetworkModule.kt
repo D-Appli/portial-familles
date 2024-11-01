@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import fr.dappli.portailfamilles.core.data.api.PersistentDataSource
 import fr.dappli.portailfamilles.core.data.remote.network.Network
 import fr.dappli.portailfamilles.core.data.remote.network.NetworkImpl
 import io.ktor.client.HttpClient
@@ -15,9 +16,10 @@ internal object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideNetwork() : Network = NetworkImpl()
+    fun provideNetwork(persistentDataSource: PersistentDataSource): Network =
+        NetworkImpl(persistentDataSource)
 
     @Provides
     @Singleton
-    fun provideHttpClient(network: Network) : HttpClient = network.client
+    fun provideHttpClient(network: Network): HttpClient = network.client
 }
