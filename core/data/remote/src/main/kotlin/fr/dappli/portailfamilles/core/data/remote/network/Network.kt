@@ -5,4 +5,5 @@ import io.ktor.client.HttpClient
 
 interface Network {
     val client: HttpClient
+    fun clearBearerToken()
 }

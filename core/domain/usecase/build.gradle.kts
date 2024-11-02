@@ -22,6 +22,7 @@ dependencies {
     implementation(libs.hilt.core)
 
     api(projects.core.domain.irepository)
+    api(projects.core.domain.model)
 
     ksp(libs.hilt.compiler)
 }

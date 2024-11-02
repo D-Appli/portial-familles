@@ -7,6 +7,7 @@ import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.auth.Auth
+import io.ktor.client.plugins.auth.providers.BearerAuthProvider
 import io.ktor.client.plugins.auth.providers.BearerTokens
 import io.ktor.client.plugins.auth.providers.bearer
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -20,6 +21,8 @@ class NetworkImpl(
     persistentDataSource: PersistentDataSource,
     mockEngine: HttpClientEngine? = null,
 ) : Network {
+
+    private var bearerAuthProvider: BearerAuthProvider? = null
 
     private val baseJson by lazy {
         Json {
@@ -46,15 +49,14 @@ class NetworkImpl(
             bearer {
                 loadTokens {
                     val accessToken = persistentDataSource.getString(PersistenceKey.TOKEN.name)
-                    println("andrei loadTokens $accessToken")
                     accessToken?.let { BearerTokens(accessToken, null) }
                 }
                 refreshTokens {
-                    println("andrei refreshTokens")
                     persistentDataSource.remove(PersistenceKey.TOKEN.name)
                     null
                 }
             }
+            bearerAuthProvider = providers.filterIsInstance<BearerAuthProvider>().firstOrNull()
         }
 
         defaultRequest {
@@ -63,6 +65,10 @@ class NetworkImpl(
                 host = PROD_HOST
             }
         }
+    }
+
+    override fun clearBearerToken() {
+        bearerAuthProvider?.clearToken()
     }
 
     private companion object {

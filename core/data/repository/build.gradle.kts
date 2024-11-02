@@ -19,6 +19,7 @@ android {
 
 dependencies {
     implementation(libs.androidx.core.ktx)
+    implementation(libs.ktor.client.okhttp)
     implementation(libs.hilt.core)
 
     implementation(projects.core.domain.irepository)
