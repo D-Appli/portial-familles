@@ -24,6 +24,7 @@ dependencies {
 
     implementation(projects.core.domain.irepository)
     implementation(projects.core.data.idatasource)
+    implementation(projects.core.kotlin)
 
     ksp(libs.hilt.compiler)
 }

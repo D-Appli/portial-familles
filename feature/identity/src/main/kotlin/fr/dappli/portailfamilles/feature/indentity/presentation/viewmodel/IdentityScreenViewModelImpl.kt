@@ -27,7 +27,6 @@ class IdentityScreenViewModelImpl @Inject constructor(
 
     init {
         viewModelScope.launch(dispatcherProvider.io) {
-
             isUserAuthenticatedUseCase().catch {
                 println("isUserAuthenticatedUseCase error $it")
                 reducer.update(IdentityScreenAction.SetSignedOut(bindCallToAction()))
@@ -48,6 +47,7 @@ class IdentityScreenViewModelImpl @Inject constructor(
 
     private fun onSignedIn(userId: String, token: String) {
         viewModelScope.launch(dispatcherProvider.io) {
+            // SaveAuthenticatedUser(AuthenticatedUser)
             persistentDataSource.putString(PersistenceKey.USER_ID.name, userId)
             persistentDataSource.putString(PersistenceKey.TOKEN.name, token)
             reducer.update(IdentityScreenAction.SetSignedIn)

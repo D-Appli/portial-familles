@@ -5,7 +5,9 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import fr.dappli.portailfamilles.core.data.repository.AuthenticationRepositoryImpl
+import fr.dappli.portailfamilles.core.data.repository.FormRepositoryImpl
 import fr.dappli.portailfamilles.core.domain.irepository.AuthenticationRepository
+import fr.dappli.portailfamilles.core.domain.irepository.FormRepository
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -15,4 +17,9 @@ interface RepositoryModule {
     fun provideAuthenticationRepository(
         repository: AuthenticationRepositoryImpl
     ): AuthenticationRepository
+
+    @Binds
+    fun provideFormRepository(
+        repository: FormRepositoryImpl
+    ): FormRepository
 }
