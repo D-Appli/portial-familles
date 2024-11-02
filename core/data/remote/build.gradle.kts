@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -19,11 +20,14 @@ android {
 
 dependencies {
     implementation(libs.androidx.core.ktx)
+    implementation(libs.ktor.client.auth)
     implementation(libs.ktor.client.okhttp)
     implementation(libs.ktor.client.contentnegotiation)
     implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.hilt.core)
 
-    api(projects.core.data.api)
-    // TODO add dependencies
+    api(projects.core.data.idatasource)
+
+    ksp(libs.hilt.compiler)
 }

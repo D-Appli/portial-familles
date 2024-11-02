@@ -59,7 +59,8 @@ dependencies {
     implementation(projects.feature.identity)
     implementation(projects.feature.reservation)
     // project libraries
-    implementation(projects.core.data.remote)
+    implementation(projects.core.presentation) // TODO delete me
+    implementation(projects.core.data.remote) // needs for dependency inversion
 
     ksp(libs.hilt.compiler)
 

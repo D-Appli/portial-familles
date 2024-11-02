@@ -4,27 +4,23 @@ import fr.dappli.portailfamilles.core.data.api.UserDataSource
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.plugins.ResponseException
-import io.ktor.client.request.headers
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.http.ContentType
-import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
 import io.ktor.http.path
 import kotlinx.serialization.Serializable
+import javax.inject.Inject
 
-class UserDataSourceImpl(
+class UserDataSourceImpl @Inject constructor(
     private val client: HttpClient
 ) : UserDataSource {
 
-    override suspend fun getUser(userId: String, token: String): String {
+    override suspend fun getUser(userId: String): String {
         val response = client.post {
             url {
                 path(PATH)
-            }
-            headers {
-                append(HttpHeaders.Authorization, "$BEARER_AUTH $token")
             }
             contentType(ContentType.Application.Json)
             setBody(UserIdModel(userId))

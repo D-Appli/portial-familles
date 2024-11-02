@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -32,11 +34,20 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.material3)
+    implementation(libs.hilt.android)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.ktor.client.okhttp)
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.hilt.navigation.compose)
+
+    ksp(libs.hilt.compiler)
 
     // project libraries
-    implementation(projects.core.data.remote)
+    implementation(projects.core.presentation)
+    implementation(projects.core.domain.usecase)
+    implementation(projects.core.data.repository)
+    implementation(projects.core.data.remote) // TODO delete me
+    implementation(projects.core.data.local) // TODO delete me
+    implementation(projects.core.kotlin)
 }
