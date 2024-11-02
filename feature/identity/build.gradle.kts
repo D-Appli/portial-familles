@@ -45,7 +45,9 @@ dependencies {
 
     // project libraries
     implementation(projects.core.presentation)
-    implementation(projects.core.data.remote)
-    implementation(projects.core.data.local)
+    implementation(projects.core.domain.usecase)
+    implementation(projects.core.data.repository)
+    implementation(projects.core.data.remote) // TODO delete me
+    implementation(projects.core.data.local) // TODO delete me
     implementation(projects.core.kotlin)
 }

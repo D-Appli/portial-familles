@@ -14,7 +14,7 @@ import fr.dappli.portailfamilles.feature.indentity.ui.component.SignInForm
 
 @Composable
 internal fun IdentityScreen(
-    onSignedIn: (String) -> Unit,
+    onSignedIn: () -> Unit,
     viewModel: IdentityScreenViewModel = hiltViewModel<IdentityScreenViewModelImpl>()
 ) {
     val state by viewModel.stateFlow.collectAsStateWithLifecycle()
@@ -24,7 +24,7 @@ internal fun IdentityScreen(
         is SignedIn -> {
             // TODO add animation
             Text("Connected")
-            onSignedIn(currentState.userId)
+            onSignedIn()
         }
         is SignedOut -> {
             SignInForm { userId, token ->

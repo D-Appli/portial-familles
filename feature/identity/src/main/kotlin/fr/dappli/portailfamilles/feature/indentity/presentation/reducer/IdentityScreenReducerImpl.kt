@@ -16,7 +16,7 @@ class IdentityScreenReducerImpl @Inject constructor(
         currentState: IdentityScreenState
     ): IdentityScreenState {
         return when (action) {
-            is IdentityScreenAction.SetSignedIn -> IdentityScreenState.SignedIn(action.userId)
+            is IdentityScreenAction.SetSignedIn -> IdentityScreenState.SignedIn
             is IdentityScreenAction.SetSignedOut -> IdentityScreenState.SignedOut(
                 action.callToActions.onSignedIn
             )

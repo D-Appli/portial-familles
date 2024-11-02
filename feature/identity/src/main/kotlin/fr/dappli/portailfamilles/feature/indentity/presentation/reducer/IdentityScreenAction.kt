@@ -9,7 +9,5 @@ sealed class IdentityScreenAction : Action {
         val callToActions: CallToActions,
     ) : IdentityScreenAction()
 
-    data class SetSignedIn(
-        val userId: String,
-    ) : IdentityScreenAction()
+    data object SetSignedIn : IdentityScreenAction()
 }

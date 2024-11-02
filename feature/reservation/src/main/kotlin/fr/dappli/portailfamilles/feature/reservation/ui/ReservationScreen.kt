@@ -13,7 +13,6 @@ import fr.dappli.portailfamilles.feature.reservation.presentation.viewmodel.Rese
 
 @Composable
 internal fun ReservationScreen(
-    username: String,
     viewModel: ReservationScreenViewModel = hiltViewModel<ReservationScreenViewModelImpl>()
 ) {
     var name: String? by remember { mutableStateOf(null) }
@@ -21,6 +20,6 @@ internal fun ReservationScreen(
         Text("Reservation pour $it")
     }
     LaunchedEffect(Unit) {
-        name = viewModel.dataSource.getUser(username)
+        name = viewModel.dataSource.getUser("28141B") // TODO delete me
     }
 }

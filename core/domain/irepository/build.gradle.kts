@@ -1,12 +1,10 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "fr.dappli.portailfamilles.core.data.local"
+    namespace = "fr.dappli.portailfamilles.core.domain.irepository"
     // TODO move to common gradle file
     compileSdk = 34
     kotlinOptions {
@@ -20,13 +18,5 @@ android {
 
 dependencies {
     implementation(libs.androidx.core.ktx)
-    implementation(libs.kotlinx.serialization.json)
-    implementation(libs.hilt.core)
-
-    api(projects.core.data.idatasource)
-    implementation(libs.androidx.datastore.core)
-    implementation(libs.androidx.datastore.preferences)
-    implementation(libs.hilt.android)
-
-    ksp(libs.hilt.compiler)
+    // TODO add dependencies
 }
