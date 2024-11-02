@@ -18,5 +18,5 @@ android {
 
 dependencies {
     implementation(libs.androidx.core.ktx)
-    // TODO add dependencies
+    api(projects.core.data.model)
 }
