@@ -12,10 +12,13 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import fr.dappli.portailfamilles.R
+import fr.dappli.portailfamilles.navigation.PortailFamillesNavBar
 import fr.dappli.portailfamilles.navigation.PortailFamillesNavHost
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -37,6 +40,12 @@ fun PortailFamillesApp(
                     Text(stringResource(R.string.app_name))
                 }
             )
+        },
+        bottomBar = {
+            val isUserAuthenticated by appState.isUserAuthenticated.collectAsStateWithLifecycle()
+            if (isUserAuthenticated) {
+                PortailFamillesNavBar()
+            }
         }
     ) { padding ->
         Column(
