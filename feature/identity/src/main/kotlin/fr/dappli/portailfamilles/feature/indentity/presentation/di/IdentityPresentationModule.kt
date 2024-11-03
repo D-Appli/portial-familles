@@ -12,7 +12,5 @@ import fr.dappli.portailfamilles.feature.indentity.presentation.reducer.Identity
 interface IdentityPresentationModule {
 
     @Binds
-    fun provideIdentityScreenReducer(
-        reducer: IdentityScreenReducerImpl
-    ): IdentityScreenReducer
+    fun provideIdentityScreenReducer(reducer: IdentityScreenReducerImpl): IdentityScreenReducer
 }
