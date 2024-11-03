@@ -33,5 +33,7 @@ dependencies {
     implementation(libs.ktor.server.resources)
     implementation(libs.ktor.server.contentnegotiation)
 
+    implementation(projects.core.data.model)
+
     ksp(libs.hilt.compiler)
 }

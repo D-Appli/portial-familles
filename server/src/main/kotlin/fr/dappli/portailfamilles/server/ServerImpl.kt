@@ -1,6 +1,8 @@
 package fr.dappli.portailfamilles.server
 
-import fr.dappli.portailfamilles.server.routing.Restaurants
+import fr.dappli.portailfamilles.core.data.model.mycity.Restaurants
+import fr.dappli.portailfamilles.server.routing.AllRestaurants
+import fr.dappli.portailfamilles.server.routing.PageRestaurants
 import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.kotlinx.json.json
@@ -13,6 +15,7 @@ import io.ktor.server.netty.NettyApplicationEngine
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.resources.Resources
 import io.ktor.server.resources.get
+import io.ktor.server.response.respond
 import io.ktor.server.response.respondText
 import io.ktor.server.routing.routing
 import kotlinx.serialization.json.Json
@@ -52,12 +55,20 @@ class ServerImpl @Inject constructor() : Server {
 
     private fun Application.configureRouting() {
         routing {
-            get<Restaurants> {
+            get<AllRestaurants> {
                 call.respondText(
                     readResourceFile("restaurants.json"),
                     ContentType.Application.Json,
                     HttpStatusCode.OK
                 )
+            }
+            get<PageRestaurants> {
+                val json = readResourceFile("restaurants.json")
+                val restaurants = Json.decodeFromString<Restaurants>(json)
+                val fromIndex = it.offset
+                val toIndex = it.offset + it.limit
+                val pagedRestaurants = restaurants.restaurants?.subList(fromIndex, toIndex)
+                call.respond(HttpStatusCode.OK, Restaurants(pagedRestaurants))
             }
         }
     }

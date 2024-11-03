@@ -5,6 +5,7 @@ import fr.dappli.portailfamilles.core.data.model.mycity.Restaurants
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
+import io.ktor.client.request.parameter
 import io.ktor.http.URLProtocol
 import io.ktor.http.path
 import javax.inject.Inject
@@ -20,6 +21,8 @@ class MyCityDataSourceImpl @Inject constructor(
                 host = HOST
                 port = PORT
                 path(PATH)
+                parameter(OFFSET_PARAM, 1)
+                parameter(LIMIT_PARAM, 2)
             }
         }
         return response.body()
@@ -29,5 +32,8 @@ class MyCityDataSourceImpl @Inject constructor(
         const val HOST = "localhost"
         const val PORT = 8080
         const val PATH = "restaurants"
+
+        const val OFFSET_PARAM = "offset"
+        const val LIMIT_PARAM = "limit"
     }
 }
