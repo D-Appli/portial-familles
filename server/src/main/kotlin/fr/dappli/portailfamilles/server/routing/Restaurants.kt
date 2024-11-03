@@ -2,11 +2,13 @@ package fr.dappli.portailfamilles.server.routing
 
 import io.ktor.resources.Resource
 
-@Resource("/restaurants")
+@Resource("/$RESTAURANTS_PATH")
 class AllRestaurants
 
-@Resource("/restaurants")
+@Resource("/$RESTAURANTS_PATH")
 data class PageRestaurants(
     val offset: Int,
     val limit: Int
 )
+
+const val RESTAURANTS_PATH = "restaurants"

@@ -3,6 +3,7 @@ package fr.dappli.portailfamilles.server
 import fr.dappli.portailfamilles.core.data.model.mycity.Restaurants
 import fr.dappli.portailfamilles.server.routing.AllRestaurants
 import fr.dappli.portailfamilles.server.routing.PageRestaurants
+import fr.dappli.portailfamilles.server.routing.RESTAURANTS_PATH
 import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.kotlinx.json.json
@@ -57,13 +58,13 @@ class ServerImpl @Inject constructor() : Server {
         routing {
             get<AllRestaurants> {
                 call.respondText(
-                    readResourceFile("restaurants.json"),
+                    readResourceFile("$RESTAURANTS_PATH.json"),
                     ContentType.Application.Json,
                     HttpStatusCode.OK
                 )
             }
             get<PageRestaurants> {
-                val json = readResourceFile("restaurants.json")
+                val json = readResourceFile("$RESTAURANTS_PATH.json")
                 val restaurants = Json.decodeFromString<Restaurants>(json)
                 val fromIndex = it.offset
                 val toIndex = it.offset + it.limit
