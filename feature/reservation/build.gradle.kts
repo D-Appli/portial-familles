@@ -45,6 +45,7 @@ dependencies {
 
     // project libraries
     implementation(projects.core.presentation)
+    implementation(projects.core.domain.usecase)
     implementation(projects.core.data.remote)
     implementation(projects.core.kotlin)
 }

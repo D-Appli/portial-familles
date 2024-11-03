@@ -51,16 +51,20 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.navigation.compose)
     implementation(libs.hilt.android)
     implementation(libs.ktor.client.okhttp)
-    implementation(libs.androidx.navigation.compose)
+    implementation(libs.kotlinx.collections.immutable)
 
     // project features
     implementation(projects.feature.identity)
     implementation(projects.feature.reservation)
     // project libraries
-    implementation(projects.core.presentation) // TODO delete me
-    implementation(projects.core.data.remote) // needs for dependency inversion
+    implementation(projects.core.presentation)
+    implementation(projects.core.domain.usecase)
+    implementation(projects.core.data.remote)
+    implementation(projects.core.kotlin)
 
     ksp(libs.hilt.compiler)
 

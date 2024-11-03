@@ -1,13 +1,13 @@
 package fr.dappli.portailfamilles.core.data.remote
 
 import fr.dappli.portailfamilles.core.data.api.SignInDataSource
+import fr.dappli.portailfamilles.core.data.model.auth.SignIn
 import fr.dappli.portailfamilles.core.data.remote.network.Network
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
 import io.ktor.http.path
-import kotlinx.serialization.Serializable
 import javax.inject.Inject
 
 class SignInDataSourceImpl @Inject constructor(
@@ -20,20 +20,15 @@ class SignInDataSourceImpl @Inject constructor(
 
     // It can not be used right now, since captcha is not yeh hacked from js
     override suspend fun signIn(username: String, password: String, captcha: String) {
-        val loginModel = LoginModel(username, password, captcha)
+        val payload = SignIn(username, password, captcha)
         network.client.post {
-            url {
-                path("login")
-            }
+            url { path(PATH) }
             contentType(ContentType.Application.Json)
-            setBody(loginModel)
+            setBody(payload)
         }
     }
-}
 
-@Serializable
-data class LoginModel(
-    val username: String,
-    val password: String,
-    val captcha: String,
-)
+    private companion object {
+        const val PATH = "login"
+    }
+}

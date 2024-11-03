@@ -1,0 +1,238 @@
+{
+  "code_retour": "OK",
+  "accueils": [
+    {
+      "id_accueil": 42,
+      "libelle": "RESERVATION ET PAIEMENT",
+      "htmlparam": "{\"theme_avant\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n<p style=\\\"font-weight: bold; font-size: 20px; background-color: white; margin: 0;\\\"><\\/p>\\n<div class=\\\"pf-background-image-2\\\" alt=\\\"teamnet\\\" title=\\\"Familles\\\" style=\\\"background: url('https:\\/\\/deuillabarre.portail-familles.com\\/config\\/deuillabarre\\/dataclient\\/css\\/images\\/bandeau3.jpg'); background-repeat: no-repeat; width: 100% !important; height: 8em; background-position-x: center; background-size: contain;\\\"><\\/div>\\n<div class=\\\"pfac_background-cadre pfac_cadre-div2\\\">\\n<p>La Mairie de DEUIL-LA-BARRE est heureuse de vous accueillir sur son Portail famille.<\\/p>\\n<p>Ce service vous permet d'effectuer en ligne, 24h\\/24 et 7j\\/7, les d&eacute;marches administratives relatives &agrave; la gestion de votre compte famille.<\\/p>\\n<p>En compl&eacute;ment de ce service, nos bureaux restent ouverts et vous accueillent aux horaires habituels d&rsquo;ouverture.<\\/p>\\n<\\/div>\\n<\\/body>\\n<\\/html>\",\"theme_apres\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n\\n<\\/body>\\n<\\/html>\",\"bloc_haut\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n<div class=\\\"container-fluid mt-5\\\">\\n<div class=\\\"row \\\"><a class=\\\"centerElement\\\" href=\\\"https:\\/\\/deuillabarre.portail-familles.com\\\"> <img alt=\\\"footer\\\" title=\\\"teamnet\\\" src=\\\"https:\\/\\/deuillabarre.portail-familles.com\\/config\\/deuillabarre\\/dataclient\\/css\\/images\\/bandeau_deuillabarre.gif\\\" \\/><\\/a><\\/div>\\n<\\/div>\\n<\\/body>\\n<\\/html>\",\"bloc_gauche\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n\\n<\\/body>\\n<\\/html>\",\"bloc_droite\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n\\n\",\"footer\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n<div class=\\\"pt-5\\\" style=\\\"text-align: center;\\\"><span style=\\\"text-align: left;\\\">Conform&eacute;ment &agrave; la loi informatique et libert&eacute;s du 6 janvier 1978, toutes les donn&eacute;es informatiques vous concernant sont trait&eacute;es de mani&egrave;re strictement confidentielle.<\\/span> <span style=\\\"text-align: left;\\\">Vous disposez d'un droit d'acc&egrave;s, de rectification et d'opposition &agrave; vos donn&eacute;es.<\\/span>\\n<p>&nbsp;<\\/p>\\n<\\/div>\\n<\\/body>\\n<\\/html>\"}",
+      "order": 1,
+      "couleur": "#bc51d2",
+      "themes": [
+        {
+          "name": "PERI-SCOLAIRE",
+          "subthemes": [
+            {
+              "id": 827,
+              "name": "NOVEMBRE 2024",
+              "ident": "PPP",
+              "description": "Cantine, garderie, accompagnements aux lecons ",
+              "secured": "N",
+              "selectionnable": true,
+              "validate": {
+                "begin": "01/10/2024",
+                "end": "30/11/2024"
+              }
+            },
+            {
+              "id": 868,
+              "name": "DECEMBRE 2024",
+              "ident": "PPP",
+              "description": "Cantine, garderie, accompagnements aux lecons ",
+              "secured": "N",
+              "selectionnable": true,
+              "validate": {
+                "begin": "01/11/2024",
+                "end": "20/12/2024"
+              }
+            },
+            {
+              "id": 870,
+              "name": "Copie de DECEMBRE 2024",
+              "ident": "PPP",
+              "description": "Cantine, garderie, accompagnements aux lecons ",
+              "secured": "",
+              "selectionnable": true,
+              "validate": {
+                "begin": "01/11/2024",
+                "end": "31/12/2024"
+              }
+            }
+          ]
+        },
+        {
+          "name": "EXTRA-SCOLAIRE",
+          "subthemes": [
+            {
+              "id": 871,
+              "name": "VACANCES NOEL  2024",
+              "ident": "PPP",
+              "description": "Les mercredis cl\u00F4ture des inscriptions le 29 NOVEMBRE 2024 \u00E0 minuit ",
+              "secured": "N",
+              "selectionnable": true,
+              "validate": {
+                "begin": "01/11/2024",
+                "end": "19/11/2024"
+              }
+            },
+            {
+              "id": 869,
+              "name": "DECEMBRE  2024",
+              "ident": "PPP",
+              "description": "Les mercredis cl\u00F4ture des inscriptions le 19 NOVEMBRE 2024 \u00E0 minuit ",
+              "secured": "N",
+              "selectionnable": true,
+              "validate": {
+                "begin": "01/11/2024",
+                "end": "19/11/2024"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ARTELIER - INISPORT",
+          "subthemes": [
+            {
+              "id": 867,
+              "name": "DECEMBRE 2024 - ARTELIER/INISPORT",
+              "ident": "PPP",
+              "description": "Merci de s\u00E9lectionner la date indiqu\u00E9e  pour le r\u00E8glement mensuel \u00E0 l'activit\u00E9 Artelier et inisport",
+              "secured": "N",
+              "selectionnable": true,
+              "validate": {
+                "begin": "01/11/2024",
+                "end": "18/11/2024"
+              }
+            }
+          ]
+        },
+        {
+          "name": "MES LIENS UTILES ",
+          "subthemes": [],
+          "theme_html": "O",
+          "afficher_titre": "O",
+          "contenu_html": "<p><a href=\"https://www.mairie-deuillabarre.fr/images/5-PRATIQUE/5.1-ENFANCE-JEUNESSE/5.1.2-4-A-10-ANS/5.1.2.8-ACCUEILS-LOISIRS/R&eacute;capitulatifs_dates_inscriptions_ALSH_mars2024.pdf\">Dates limites pour l'inscription aux Centres de Loisirs</a></p>\n<p><a href=\"https://www.mairie-deuillabarre.fr/images/5-PRATIQUE/5.1-ENFANCE-JEUNESSE/5.1.2-4-A-10-ANS/5.1.2.9-INSCRIPTIONS-EN-LIGNE-ACCUEIL-LOISIR/MODIFICATION_RI.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">R&egrave;glement int&eacute;rieur</a></p>\n<p><a title=\"Grille Tarifaire 2024-2025\" href=\"https://www.mairie-deuillabarre.fr/images/5-PRATIQUE/5.1-ENFANCE-JEUNESSE/5.1.2-4-A-10-ANS/5.1.2.5-QUOTIENT-FAMILIAL/Quotient_familial_2024-2025.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Grille Tarifaire 2024-2025</a></p>\n<p><a href=\"https://www.mairie-deuillabarre.fr/pratique/enfance-4-10-ans/460-les-restaurants-scolaires\" target=\"_blank\" rel=\"noopener noreferrer\">Les Restaurants Scolaires</a></p>\n<p><a href=\"https://www.mairie-deuillabarre.fr/pratique/enfance-4-10-ans/843-accueils-de-loisirs-mercredis-et-vacances-scolaires\" target=\"_blank\" rel=\"noopener noreferrer\">Les Accueils de Loisirs</a></p>\n<p><a href=\"https://www.mairie-deuillabarre.fr/pratique/enfance-4-10-ans/461-periscolaire\" target=\"_blank\" rel=\"noopener noreferrer\">L'Accompagnement aux Le&ccedil;ons</a></p>\n<p><a href=\"https://www.mairie-deuillabarre.fr/pratique/enfance-4-10-ans/956-pedibus\" target=\"_blank\" rel=\"noopener noreferrer\">Le Pedibus</a></p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>"
+        }
+      ]
+    },
+    {
+      "id_accueil": 43,
+      "libelle": "MON COMPTE",
+      "htmlparam": "{\"theme_avant\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n<p style=\\\"font-weight: bold; font-size: 20px; background-color: white; margin: 0;\\\"><\\/p>\\n<div class=\\\"pf-background-image-2\\\" alt=\\\"teamnet\\\" title=\\\"Familles\\\" style=\\\"background: url('https:\\/\\/deuillabarre.portail-familles.com\\/config\\/deuillabarre\\/dataclient\\/css\\/images\\/bandeau3.jpg'); background-repeat: no-repeat; width: 100% !important; height: 8em; background-position-x: center; background-size: contain;\\\"><\\/div>\\n<div class=\\\"pfac_background-cadre pfac_cadre-div2\\\">\\n<p>La Mairie de DEUIL-LA-BARRE est heureuse de vous accueillir sur son Portail famille.<\\/p>\\n<p>Ce service vous permet d'effectuer en ligne, 24h\\/24 et 7j\\/7, les d&eacute;marches administratives relatives &agrave; la gestion de votre compte famille.<\\/p>\\n<p><span style=\\\"color: #ff0000;\\\"><strong>Pour une attestation fiscale, vous pouvez vous adresser &agrave; l'Accueil Multiservices par courriel au accueilmulti@deuillabarre.fr ou appeler au 01.34.28.65.78 \\/ 65.68 \\/ 65. 83 \\/ 65. 20.<\\/strong><\\/span><\\/p>\\n<p>En compl&eacute;ment de ce service, nos bureaux restent ouverts et vous accueillent aux horaires habituels d&rsquo;ouverture.<\\/p>\\n<\\/div>\\n<\\/body>\\n<\\/html>\",\"theme_apres\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n\\n<\\/body>\\n<\\/html>\",\"bloc_haut\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n<div class=\\\"container-fluid mt-5\\\">\\n<div class=\\\"row \\\"><a class=\\\"centerElement\\\" href=\\\"https:\\/\\/deuillabarre.portail-familles.com\\\"> <img alt=\\\"footer\\\" title=\\\"teamnet\\\" src=\\\"https:\\/\\/deuillabarre.portail-familles.com\\/config\\/deuillabarre\\/dataclient\\/css\\/images\\/bandeau_deuillabarre.gif\\\" \\/><\\/a><\\/div>\\n<\\/div>\\n<\\/body>\\n<\\/html>\",\"bloc_gauche\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n\\n<\\/body>\\n<\\/html>\",\"bloc_droite\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n\\n<\\/body>\\n<\\/html>\",\"footer\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n<div class=\\\"pt-5\\\" style=\\\"text-align: center;\\\"><span style=\\\"text-align: left;\\\">Conform&eacute;ment &agrave; la loi informatique et libert&eacute;s du 6 janvier 1978, toutes les donn&eacute;es informatiques vous concernant sont trait&eacute;es de mani&egrave;re strictement confidentielle.<\\/span> <span style=\\\"text-align: left;\\\">Vous disposez d'un droit d'acc&egrave;s, de rectification et d'opposition &agrave; vos donn&eacute;es.<\\/span>\\n<p>&nbsp;<\\/p>\\n<\\/div>\\n<\\/body>\\n<\\/html>\"}",
+      "order": 2,
+      "couleur": "#ae60d2",
+      "themes": [
+        {
+          "name": "DOSSIER FAMILLE",
+          "subthemes": [
+            {
+              "id": 627,
+              "name": "MON AGENDA",
+              "ident": "CAG",
+              "description": "Consulter mes inscriptions aux activit\u00E9s",
+              "secured": "O",
+              "selectionnable": true,
+              "validate": {
+                "begin": "02/09/2024",
+                "end": "31/08/2025"
+              }
+            },
+            {
+              "id": 125,
+              "name": "Consulter mon compte famille ",
+              "ident": "COF",
+              "description": "",
+              "secured": "O",
+              "selectionnable": true,
+              "validate": {
+                "begin": "30/10/2024",
+                "end": "31/08/2025"
+              }
+            },
+            {
+              "id": 628,
+              "name": "Modifier mon adresse",
+              "ident": "MCO",
+              "description": "",
+              "secured": "O",
+              "selectionnable": true,
+              "validate": {
+                "begin": "30/10/2024",
+                "end": "31/08/2025"
+              }
+            }
+          ]
+        },
+        {
+          "name": "OUVERTURE DE COMPTE",
+          "subthemes": [],
+          "theme_html": "N",
+          "afficher_titre": "",
+          "contenu_html": ""
+        },
+        {
+          "name": "MES FACILITES",
+          "subthemes": [],
+          "theme_html": "O",
+          "afficher_titre": "O",
+          "contenu_html": "<p><a href=\"https://www.mairie-deuillabarre.fr/images/5-PRATIQUE/5.1-ENFANCE-JEUNESSE/5.1.2-4-A-10-ANS/5.1.2.2-SINSCRIRE-A-LECOLE/inscriptions-scolaires-2024-2025/QUOTIENT_FAMILIAL.pdf\">Calculer mon Quotient Familial 2024-2025</a></p>\n<p><a title=\"Grille Tarifaire 2024-2025\" href=\"https://www.mairie-deuillabarre.fr/images/5-PRATIQUE/5.1-ENFANCE-JEUNESSE/5.1.2-4-A-10-ANS/5.1.2.5-QUOTIENT-FAMILIAL/Quotient_familial_2024-2025.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Grille Tarifaire 2024-2025</a></p>\n<p><a href=\"https://www.mairie-deuillabarre.fr/images/5-PRATIQUE/5.1-ENFANCE-JEUNESSE/5.1.2-4-A-10-ANS/5.1.2.2-SINSCRIRE-A-LECOLE/inscriptions-scolaires-2024-2025/QUOTIENT_FAMILIAL.pdf\">Calendrier des dates d'inscriptions aux accueils de loisirs 2024</a></p>\n<p>&nbsp;</p>"
+        },
+        {
+          "name": "MES INTERLOCUTEURS",
+          "subthemes": [],
+          "theme_html": "O",
+          "afficher_titre": "O",
+          "contenu_html": "<p><a href=\"https://www.mairie-deuillabarre.fr/images/5-PRATIQUE/5.1-ENFANCE-JEUNESSE/5.1.2-4-A-10-ANS/5.1.2.2-SINSCRIRE-A-LECOLE/inscriptions-scolaires-2024-2025/VOS_INTERLOCUTEURS_MAIRIE_ET_LEURS_COMPETENCES.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Vos interlocuteurs Mairie et leurs comp&eacute;tences</a></p>\n<p><span style=\"color: #000000;\"><strong>Coordonn&eacute;es </strong></span></p>\n<p><span style=\"color: #000000;\"><strong>ACCUEIL MULTISERVICE</strong></span></p>\n<p><a href=\"mailto:AccueilMulti@deuillabarre.fr\">AccueilMulti@deuillabarre.fr</a></p>\n<p><a href=\"tel: 01.34.28.65.68\">01.34.28.65.68</a></p>\n<p><a href=\"tel:01.34.28.65.78\">01.34.28.65.78</a></p>\n<p><a href=\"tel:01.34.28.65.20\">01.34.28.65.20</a></p>\n<p><a href=\"tel:01.34.28.65.83\">01.34.28.65.83</a></p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>"
+        }
+      ]
+    },
+    {
+      "id_accueil": 44,
+      "libelle": "MES FACTURES ",
+      "htmlparam": "{\"theme_avant\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n<p style=\\\"font-weight: bold; font-size: 20px; background-color: white; margin: 0;\\\"><\\/p>\\n<div class=\\\"pf-background-image-2\\\" alt=\\\"teamnet\\\" title=\\\"Familles\\\" style=\\\"background: url('https:\\/\\/deuillabarre.portail-familles.com\\/config\\/deuillabarre\\/dataclient\\/css\\/images\\/bandeau3.jpg'); background-repeat: no-repeat; width: 100% !important; height: 8em; background-position-x: center; background-size: contain;\\\"><\\/div>\\n<div class=\\\"pfac_background-cadre pfac_cadre-div2\\\">\\n<p>La Mairie de DEUIL-LA-BARRE est heureuse de vous accueillir sur son Portail famille.<\\/p>\\n<p>Ce service vous permet d'effectuer en ligne, 24h\\/24 et 7j\\/7, les d&eacute;marches administratives relatives &agrave; la gestion de votre compte famille.<\\/p>\\n<p>En compl&eacute;ment de ce service, nos bureaux restent ouverts et vous accueillent aux horaires habituels d&rsquo;ouverture.<\\/p>\\n<\\/div>\\n<\\/body>\\n<\\/html>\",\"theme_apres\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n\\n<\\/body>\\n<\\/html>\",\"bloc_haut\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n<div class=\\\"container-fluid mt-5\\\">\\n<div class=\\\"row \\\"><a class=\\\"centerElement\\\" href=\\\"https:\\/\\/deuillabarre.portail-familles.com\\\"> <img alt=\\\"footer\\\" title=\\\"teamnet\\\" src=\\\"https:\\/\\/deuillabarre.portail-familles.com\\/config\\/deuillabarre\\/dataclient\\/css\\/images\\/bandeau_deuillabarre.gif\\\" \\/><\\/a><\\/div>\\n<\\/div>\\n<\\/body>\\n<\\/html>\",\"bloc_gauche\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n\\n<\\/body>\\n<\\/html>\",\"bloc_droite\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n\\n<\\/body>\\n<\\/html>\",\"footer\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n<div class=\\\"pt-5\\\" style=\\\"text-align: center;\\\"><span style=\\\"text-align: left;\\\">Conform&eacute;ment &agrave; la loi informatique et libert&eacute;s du 6 janvier 1978, toutes les donn&eacute;es informatiques vous concernant sont trait&eacute;es de mani&egrave;re strictement confidentielle.<\\/span> <span style=\\\"text-align: left;\\\">Vous disposez d'un droit d'acc&egrave;s, de rectification et d'opposition &agrave; vos donn&eacute;es.<\\/span>\\n<p>&nbsp;<\\/p>\\n<\\/div>\\n<\\/body>\\n<\\/html>\"}",
+      "order": 3,
+      "couleur": "#ac43e5",
+      "themes": [
+        {
+          "name": "Paiement des factures ",
+          "subthemes": [
+            {
+              "id": 147,
+              "name": "Je paie mes factures en ligne ",
+              "ident": "PFA",
+              "description": "",
+              "secured": "O",
+              "selectionnable": true,
+              "validate": {
+                "begin": "01/01/1900",
+                "end": "31/12/2100"
+              }
+            }
+          ]
+        },
+        {
+          "name": "HISTORIQUE (Facturation)",
+          "subthemes": [
+            {
+              "id": 153,
+              "name": "Consulter l'historique de mes factures ",
+              "ident": "CHF",
+              "description": "",
+              "secured": "O",
+              "selectionnable": true,
+              "validate": {
+                "begin": "01/01/1900",
+                "end": "31/12/2100"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id_accueil": 86,
+      "libelle": "SCOLAIRE",
+      "htmlparam": "{\"theme_avant\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n<p style=\\\"font-weight: bold; font-size: 20px; background-color: white; margin: 0;\\\"><span style=\\\"color: #ff0000;\\\"><strong><\\/strong><\\/span><\\/p>\\n<p style=\\\"font-weight: bold; font-size: 20px; background-color: white; margin: 0;\\\"><span style=\\\"color: #ff0000;\\\"><strong><\\/strong><\\/span><\\/p>\\n<p style=\\\"font-weight: bold; font-size: 20px; background-color: white; margin: 0px; text-align: center;\\\"><strong><\\/strong><\\/p>\\n<p style=\\\"font-weight: bold; font-size: 20px; background-color: white; margin: 0px; text-align: center;\\\"><strong><\\/strong><span style=\\\"color: #ff0000;\\\"><strong>Les pr&eacute;inscriptions scolaires de la rentr&eacute;e 2025-2026 d&eacute;buteront le lundi 27 janvier 2025.<\\/strong><\\/span><\\/p>\\n<p style=\\\"font-weight: bold; font-size: 20px; background-color: white; margin: 0;\\\"><\\/p>\\n<div class=\\\"pfac_background-cadre pfac_cadre-div2\\\">\\n<p><span style=\\\"color: #000000;\\\"><em><strong>Une Demande d'ouverture de compte est n&eacute;cessaire pour les familles nouvellement arriv&eacute;es sur la commune o&ugrave; inscrivant un premier enfant &agrave; l'&eacute;cole pour obtenir un identifiant.<\\/strong><\\/em><\\/span><\\/p>\\n<p><span style=\\\"color: #ff0000;\\\"><strong>Merci de bien vouloir vous adresser &agrave; l'Accueil Multiservices pour toute information.<\\/strong><\\/span><\\/p>\\n<p>En compl&eacute;ment de ce service, nos bureaux restent ouverts et vous accueillent aux horaires habituels d&rsquo;ouverture.<\\/p>\\n<p style=\\\"font-weight: bold; font-size: 20px; background-color: white; margin: 0px; text-align: center;\\\"><\\/p>\\n<p style=\\\"text-align: center;\\\"><a href=\\\"mailto:AccueilMulti@deuillabarre.fr\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">AccueilMulti@deuillabarre.fr<\\/a><\\/p>\\n<p style=\\\"text-align: center;\\\">01.34.28.65.78 \\/ 65.68 \\/ 65.20 \\/ 65.83<\\/p>\\n<\\/div>\\n<\\/body>\\n<\\/html>\",\"theme_apres\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n\\n<\\/body>\\n<\\/html>\",\"bloc_haut\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n<div class=\\\"container-fluid mt-5\\\">\\n<div class=\\\"row \\\"><a class=\\\"centerElement\\\" href=\\\"https:\\/\\/deuillabarre.portail-familles.com\\\"> <img alt=\\\"footer\\\" title=\\\"teamnet\\\" src=\\\"https:\\/\\/deuillabarre.portail-familles.com\\/config\\/deuillabarre\\/dataclient\\/css\\/images\\/bandeau_deuillabarre.gif\\\" \\/><\\/a><\\/div>\\n<\\/div>\\n<\\/body>\\n<\\/html>\",\"bloc_gauche\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n\\n<\\/body>\\n<\\/html>\",\"bloc_droite\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n\\n<\\/body>\\n<\\/html>\",\"footer\":\"<!DOCTYPE html>\\n<html>\\n<head>\\n<\\/head>\\n<body>\\n<div class=\\\"pt-5\\\" style=\\\"text-align: center;\\\"><span style=\\\"text-align: left;\\\">Conform&eacute;ment &agrave; la loi informatique et libert&eacute;s du 6 janvier 1978, toutes les donn&eacute;es informatiques vous concernant sont trait&eacute;es de mani&egrave;re strictement confidentielle.<\\/span> <span style=\\\"text-align: left;\\\">Vous disposez d'un droit d'acc&egrave;s, de rectification et d'opposition &agrave; vos donn&eacute;es.<\\/span>\\n<p>&nbsp;<\\/p>\\n<\\/div>\\n<\\/body>\\n<\\/html>\"}",
+      "order": 5,
+      "couleur": "#c14ce1",
+      "themes": [
+        {
+          "name": "Projet  d'Accueil  Individualis\u00E9 ( PAI )",
+          "subthemes": [],
+          "theme_html": "O",
+          "afficher_titre": "N",
+          "contenu_html": "<p><span style=\"color: #000000; background-color: #ffffff;\"><strong>PROJET D'ACCUEIL INDIVIDUALISE (PAI)</strong></span></p>\n<p><span style=\"color: #000000; background-color: #ffffff;\">Chers parents,</span></p>\n<p><span style=\"color: #000000;\">Si l'&eacute;tat de sant&eacute; de votre enfant n&eacute;cessite des soins ou des pr&eacute;cautions sp&eacute;cifiques au quotidien (allergies, diab&egrave;tes, intol&eacute;rance alimentaire, asthme etc...). Vous pouvez soliciter la mis en place d'un Projet d'Accueil Individualis&eacute; (PAI) dans le cadre P&eacute;riscolaire et pour ce faire :</span></p>\n<p><span style=\"color: #000000;\">Vous trouverez, ci-dessous, 3 formulaires PAI. Merci de bien vouloir s&eacute;lectionner le PAI vous concernant.</span></p>\n<p><a href=\"https://www.mairie-deuillabarre.fr/images/5-PRATIQUE/5.1-ENFANCE-JEUNESSE/5.1.2-4-A-10-ANS/5.1.2.2-SINSCRIRE-A-LECOLE/inscriptions-scolaires-2024-2025/PAI_asthme.pdf\">PAI asthme</a></p>\n<p><a href=\"https://www.mairie-deuillabarre.fr/images/5-PRATIQUE/5.1-ENFANCE-JEUNESSE/5.1.2-4-A-10-ANS/5.1.2.2-SINSCRIRE-A-LECOLE/inscriptions-scolaires-2024-2025/PAI_scolaire_classique.pdf\">PAI scolaire classique</a></p>\n<p><a href=\"https://www.mairie-deuillabarre.fr/images/5-PRATIQUE/5.1-ENFANCE-JEUNESSE/5.1.2-4-A-10-ANS/5.1.2.2-SINSCRIRE-A-LECOLE/inscriptions-scolaires-2024-2025/PAI_scolaire_diab%C3%A9tique.pdf\">PAI scolaire diab&eacute;tique</a></p>\n<p>Le PAI doit &ecirc;tre renouvel&eacute; chaque ann&eacute;e et doit &ecirc;tre complet pour &ecirc;tre appilqu&eacute;.</p>\n<p><span style=\"color: #000000;\">Les parents doivent joindre le traitement dans une trouse au nom de l'enfant correspondant &agrave; l'ordonnance, dans chacune des structures p&eacute;riscolaires fr&eacute;quent&eacute;es par l'enfant.</span></p>\n<p><span style=\"color: #000000;\"><strong>Le PAI est &agrave; retourner par courriel &agrave; l'adresse suivante</strong> :</span>&nbsp;<a href=\"mailto:scolaire@deuillabarre.fr\" target=\"_blank\" rel=\"noopener noreferrer\">scolaire@deuillabarre.fr</a>&nbsp;<span style=\"color: #000000;\"><strong>ou mettre sous enveloppe et le d&eacute;poser &agrave; l'accueil multiservices en mairie annexe, un mois minimum avant la rentr&eacute;e scolaire de septembre.</strong></span></p>"
+        }
+      ]
+    }
+  ]
+}

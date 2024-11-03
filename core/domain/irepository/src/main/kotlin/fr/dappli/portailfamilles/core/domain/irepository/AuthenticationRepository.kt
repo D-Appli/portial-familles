@@ -7,5 +7,4 @@ interface AuthenticationRepository {
     suspend fun clearToken()
     suspend fun getUserId(): String?
     suspend fun getUser(userId: String): String // TODO replace by model
-
 }
