@@ -5,6 +5,7 @@ import fr.dappli.portailfamilles.core.data.model.form.Forms
 import fr.dappli.portailfamilles.core.data.model.form.UserId
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
+import io.ktor.client.request.get
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.http.ContentType
@@ -17,6 +18,10 @@ class FormsDataSourceImpl @Inject constructor(
 ): FormsDataSource {
 
     override suspend fun getForms(userId: String): Forms {
+
+        val r = client.get("http://localhost:8080/restaurants")
+        println("andrei: ${r.body<String>()}")
+
         val payload = UserId(userId)
         val response = client.post {
             url { path(PATH) }

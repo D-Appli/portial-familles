@@ -39,6 +39,17 @@ android {
     buildFeatures {
         compose = true
     }
+
+    packaging {
+        resources {
+            pickFirsts.add("META-INF/io.netty.versions.properties")
+            excludes.add("META-INF/INDEX.LIST")
+            excludes.add("META-INF/*.SF")
+            excludes.add("META-INF/*.DSA")
+            excludes.add("META-INF/*.RSA")
+        }
+    }
+
 }
 
 dependencies {
@@ -65,6 +76,9 @@ dependencies {
     implementation(projects.core.domain.usecase)
     implementation(projects.core.data.remote)
     implementation(projects.core.kotlin)
+
+    // embedded server
+    implementation(projects.server)
 
     ksp(libs.hilt.compiler)
 
