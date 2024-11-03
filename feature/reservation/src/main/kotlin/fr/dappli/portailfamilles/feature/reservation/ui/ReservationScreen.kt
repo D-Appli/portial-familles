@@ -9,7 +9,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.hilt.navigation.compose.hiltViewModel
-import fr.dappli.portailfamilles.core.domain.model.form.Form
+import fr.dappli.portailfamilles.core.domain.model.mycity.Restaurant
 import fr.dappli.portailfamilles.feature.reservation.presentation.viewmodel.ReservationScreenViewModel
 import fr.dappli.portailfamilles.feature.reservation.presentation.viewmodel.ReservationScreenViewModelImpl
 
@@ -18,14 +18,14 @@ internal fun ReservationScreen(
     viewModel: ReservationScreenViewModel = hiltViewModel<ReservationScreenViewModelImpl>()
 ) {
     var name: String? by remember { mutableStateOf(null) }
-    var forms: List<Form>? by remember { mutableStateOf(null) }
+    var restaurants: List<Restaurant>? by remember { mutableStateOf(null) }
 
     Column {
         name?.let { Text("Reservation pour $it") }
-        forms?.let { Text("Forms: $it") }
+        restaurants?.let { Text("Restaurants: $it") }
     }
     LaunchedEffect(Unit) {
         name = viewModel.userDataSource.getUser("28141B") // TODO delete me
-        forms = viewModel.usecase() // TODO delete me
+        restaurants = viewModel.usecase() // TODO delete me
     }
 }
