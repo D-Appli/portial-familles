@@ -37,3 +37,5 @@ include(":core:data:idatasource")
 include(":core:data:model")
 include(":core:data:remote")
 include(":core:data:local")
+// embedded server
+include(":server")
