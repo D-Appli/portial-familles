@@ -10,7 +10,7 @@ class MyCityRepositoryImpl @Inject constructor(
     private val myCityDataSource: MyCityDataSource,
     private val mapper: RestaurantMapper,
 ) : MyCityRepository {
-    override suspend fun getRestaurants(): List<Restaurant> {
-        return mapper.map(myCityDataSource.getRestaurants())
+    override suspend fun getRestaurants(offset: Int, limit: Int): List<Restaurant> {
+        return mapper.map(myCityDataSource.getRestaurants(offset, limit))
     }
 }

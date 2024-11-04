@@ -14,15 +14,15 @@ class MyCityDataSourceImpl @Inject constructor(
     private val client: HttpClient // TODO non auth client should be used
 ) : MyCityDataSource {
 
-    override suspend fun getRestaurants(): Restaurants {
+    override suspend fun getRestaurants(offset: Int, limit: Int): Restaurants {
         val response = client.get {
             url {
                 protocol = URLProtocol.HTTP
                 host = HOST
                 port = PORT
                 path(PATH)
-                parameter(OFFSET_PARAM, 1)
-                parameter(LIMIT_PARAM, 2)
+                parameter(OFFSET_PARAM, offset)
+                parameter(LIMIT_PARAM, limit)
             }
         }
         return response.body()

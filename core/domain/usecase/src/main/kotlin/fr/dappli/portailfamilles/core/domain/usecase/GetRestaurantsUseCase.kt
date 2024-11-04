@@ -8,6 +8,17 @@ class GetRestaurantsUseCase @Inject constructor(
     private val repository: MyCityRepository
 ) {
 
-    suspend operator fun invoke(): List<Restaurant> =
-        repository.getRestaurants()
+    suspend operator fun invoke(offset: Int, limit: Int): List<Restaurant> {
+        when {
+            offset < 0 -> throw IllegalArgumentException("offset can not be negative")
+            limit > MAX_LIMIT -> throw IllegalArgumentException("limit can not be higher then $MAX_LIMIT")
+            offset > MAX_OFFSET -> throw IllegalArgumentException("offset can not be higher then $MAX_OFFSET")
+        }
+        return repository.getRestaurants(offset, limit)
+    }
+
+    private companion object {
+        const val MAX_LIMIT = 100
+        const val MAX_OFFSET = 10_000 // Check with your PO
+    }
 }
