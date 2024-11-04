@@ -30,11 +30,14 @@ fun MyCityScreen(
     viewModel: MyCityScreenViewModel = hiltViewModel<MyCityScreenViewModelImpl>()
 ) {
     val state by viewModel.stateFlow.collectAsStateWithLifecycle()
-    Box(contentAlignment = Alignment.Center) {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
         when (val currentState = state) {
             is MyCityScreenState.Content -> RestaurantsView(currentState)
             MyCityScreenState.Loading -> CircularProgressIndicator()
-            MyCityScreenState.None -> Unit
+            MyCityScreenState.None -> Text("None")
             MyCityScreenState.Error -> Text("Error")
         }
     }
@@ -67,7 +70,7 @@ private fun BoxScope.RestaurantsView(state: MyCityScreenState.Content) {
                         Text(item.address)
                     }
                 }
-                if (index == state.restaurants.size - LOAD_THRESHOLD && state.isLoading.not()) {
+                if (index > state.restaurants.size - LOAD_THRESHOLD && state.isLoading.not()) {
                     state.loadMoreItems(state.restaurants.size)
                 }
             }
@@ -80,4 +83,4 @@ private fun BoxScope.RestaurantsView(state: MyCityScreenState.Content) {
     }
 }
 
-private const val LOAD_THRESHOLD = 1
+private const val LOAD_THRESHOLD = 8

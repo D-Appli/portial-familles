@@ -18,6 +18,7 @@ import io.ktor.server.resources.Resources
 import io.ktor.server.resources.get
 import io.ktor.server.response.respond
 import io.ktor.server.routing.routing
+import kotlinx.coroutines.delay
 import kotlinx.serialization.json.Json
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -88,6 +89,7 @@ class ServerImpl @Inject constructor() : Server {
                     restaurants
                 }
                 val restos = restaurants.subList(fromIndex, toIndexExclusive)
+                delay(1000) // simulate a delay
                 call.respond(HttpStatusCode.OK, Restaurants(restos))
             }
         }

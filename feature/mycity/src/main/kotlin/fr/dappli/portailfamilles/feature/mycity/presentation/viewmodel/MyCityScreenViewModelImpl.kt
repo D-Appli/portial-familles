@@ -24,6 +24,7 @@ class MyCityScreenViewModelImpl @Inject constructor(
     init {
         viewModelScope.launch(dispatcherProvider.io) {
             try {
+                reducer.update(MyCityScreenAction.SetLoading)
                 val restaurants = getRestaurantsUseCase(offset = 0)
                 reducer.update(MyCityScreenAction.SetContent(restaurants, bindCallToAction()))
             } catch (e: Throwable) {

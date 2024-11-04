@@ -18,7 +18,7 @@ class GetRestaurantsUseCase @Inject constructor(
     }
 
     private companion object {
-        const val DEFAULT_LIMIT = 10
+        const val DEFAULT_LIMIT = 20
         const val MAX_LIMIT = 100
         const val MAX_OFFSET = 10_000 // Check with your PO
     }
