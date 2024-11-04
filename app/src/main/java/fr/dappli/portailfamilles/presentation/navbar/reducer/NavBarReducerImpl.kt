@@ -12,9 +12,13 @@ class NavBarReducerImpl @Inject constructor(
     override fun reduce(action: NavBarAction, currentState: NavBarState): NavBarState {
         return when (action) {
             is NavBarAction.SetContent -> {
-                val items = action.forms.map { it.label }.subList(0, 3).toImmutableList()
+                val items = action.forms.map { it.label }.subList(0, MAX_ITEMS).toImmutableList()
                 NavBarState.Content(items)
             }
         }
+    }
+
+    private companion object {
+        const val MAX_ITEMS = 4
     }
 }

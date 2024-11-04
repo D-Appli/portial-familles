@@ -31,17 +31,19 @@ fun PortailFamillesNavBar(
         NavBarState.None -> Unit
         is NavBarState.Content -> {
             var selectedItem by remember { mutableIntStateOf(0) }
-            val items = currentState.items//listOf("Reservation", "Mes Factures", "Mon Compte")
+            val items = currentState.items
 
             val selectedIcons = listOf(
                 ImageVector.vectorResource(R.drawable.ic_shopping_cart_filled),
                 ImageVector.vectorResource(R.drawable.ic_receipt_filled),
-                Icons.Filled.Person
+                Icons.Filled.Person,
+                ImageVector.vectorResource(R.drawable.ic_city_filled),
             )
             val unselectedIcons = listOf(
                 ImageVector.vectorResource(R.drawable.ic_shopping_cart_outlined),
                 ImageVector.vectorResource(R.drawable.ic_receipt_outlined),
-                Icons.Outlined.Person
+                Icons.Outlined.Person,
+                ImageVector.vectorResource(R.drawable.ic_city_outlined),
             )
 
             NavigationBar {
