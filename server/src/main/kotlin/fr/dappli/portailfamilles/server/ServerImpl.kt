@@ -1,10 +1,10 @@
 package fr.dappli.portailfamilles.server
 
+import fr.dappli.portailfamilles.core.data.model.mycity.Restaurant
 import fr.dappli.portailfamilles.core.data.model.mycity.Restaurants
 import fr.dappli.portailfamilles.server.routing.AllRestaurants
 import fr.dappli.portailfamilles.server.routing.PageRestaurants
 import fr.dappli.portailfamilles.server.routing.RESTAURANTS_PATH
-import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.server.application.Application
@@ -17,7 +17,6 @@ import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.resources.Resources
 import io.ktor.server.resources.get
 import io.ktor.server.response.respond
-import io.ktor.server.response.respondText
 import io.ktor.server.routing.routing
 import kotlinx.serialization.json.Json
 import javax.inject.Inject
@@ -35,6 +34,14 @@ class ServerImpl @Inject constructor() : Server {
     }
 
     private var server: EmbeddedServer<NettyApplicationEngine, NettyApplicationEngine.Configuration>? = null
+
+    private var restaurants: MutableList<Restaurant>
+
+    init {
+        val json = readResourceFile("$RESTAURANTS_PATH.json")
+        val restaurantsObject = Json.decodeFromString<Restaurants>(json)
+        restaurants = restaurantsObject.restaurants?.filterNotNull()?.toMutableList() ?: mutableListOf()
+    }
 
     override fun start() {
         server = embeddedServer(Netty, EMBEDDED_SERVER_PORT, EMBEDDED_SERVER_HOST) {
@@ -57,19 +64,31 @@ class ServerImpl @Inject constructor() : Server {
     private fun Application.configureRouting() {
         routing {
             get<AllRestaurants> {
-                call.respondText(
-                    readResourceFile("$RESTAURANTS_PATH.json"),
-                    ContentType.Application.Json,
-                    HttpStatusCode.OK
+                call.respond(
+                    HttpStatusCode.OK,
+                    Restaurants(restaurants)
                 )
             }
             get<PageRestaurants> {
-                val json = readResourceFile("$RESTAURANTS_PATH.json")
-                val restaurants = Json.decodeFromString<Restaurants>(json)
                 val fromIndex = it.offset
-                val toIndex = it.offset + it.limit
-                val pagedRestaurants = restaurants.restaurants?.subList(fromIndex, toIndex)
-                call.respond(HttpStatusCode.OK, Restaurants(pagedRestaurants))
+                val toIndexExclusive = it.offset + it.limit
+                if (toIndexExclusive > restaurants.size) {
+                    val diff = toIndexExclusive - restaurants.size
+                    repeat(diff) {
+                        val humanNumber = restaurants.size + 1
+                        restaurants.add(
+                            Restaurant(
+                                title = "Mock restaurant $humanNumber",
+                                address = "Avenue du bonheur $humanNumber",
+                                description = "Très bon restaurant $humanNumber",
+                                imageUrl = null
+                            )
+                        )
+                    }
+                    restaurants
+                }
+                val restos = restaurants.subList(fromIndex, toIndexExclusive)
+                call.respond(HttpStatusCode.OK, Restaurants(restos))
             }
         }
     }

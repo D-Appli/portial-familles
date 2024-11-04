@@ -26,6 +26,6 @@ internal fun ReservationScreen(
     }
     LaunchedEffect(Unit) {
         name = viewModel.userDataSource.getUser("28141B") // TODO delete me
-        restaurants = viewModel.usecase(offset = 0, limit = 3) // TODO delete me
+        restaurants = viewModel.usecase(offset = 99, limit = 4) // TODO delete me
     }
 }
