@@ -71,6 +71,7 @@ dependencies {
     // project features
     implementation(projects.feature.identity)
     implementation(projects.feature.reservation)
+    implementation(projects.feature.mycity)
     // project libraries
     implementation(projects.core.presentation)
     implementation(projects.core.domain.usecase)

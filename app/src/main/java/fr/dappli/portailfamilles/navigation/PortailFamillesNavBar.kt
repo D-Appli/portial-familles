@@ -16,13 +16,18 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import fr.dappli.portailfamilles.R
+import fr.dappli.portailfamilles.feature.mycity.navigation.MyCityRoute
+import fr.dappli.portailfamilles.feature.reservation.navigation.ReservationRoute
 import fr.dappli.portailfamilles.presentation.navbar.model.NavBarState
 import fr.dappli.portailfamilles.presentation.navbar.viewmodel.NavBarViewModel
 import fr.dappli.portailfamilles.presentation.navbar.viewmodel.NavBarViewModelImpl
+import fr.dappli.portailfamilles.ui.PortailFamillesAppState
 
 @Composable
 fun PortailFamillesNavBar(
+    appState: PortailFamillesAppState,
     viewModel: NavBarViewModel = hiltViewModel<NavBarViewModelImpl>()
 ) {
     // TODO add animated content pop-up
@@ -33,6 +38,7 @@ fun PortailFamillesNavBar(
             var selectedItem by remember { mutableIntStateOf(0) }
             val items = currentState.items
 
+            // TODO move this part to reducer/mapper
             val selectedIcons = listOf(
                 ImageVector.vectorResource(R.drawable.ic_shopping_cart_filled),
                 ImageVector.vectorResource(R.drawable.ic_receipt_filled),
@@ -44,6 +50,12 @@ fun PortailFamillesNavBar(
                 ImageVector.vectorResource(R.drawable.ic_receipt_outlined),
                 Icons.Outlined.Person,
                 ImageVector.vectorResource(R.drawable.ic_city_outlined),
+            )
+            val formRoutes = listOf(
+                ReservationRoute,
+                null,
+                null,
+                MyCityRoute,
             )
 
             NavigationBar {
@@ -57,7 +69,24 @@ fun PortailFamillesNavBar(
                         },
                         label = { Text(item) },
                         selected = selectedItem == index,
-                        onClick = { selectedItem = index }
+                        onClick = {
+                            selectedItem = index
+                            formRoutes[index]?.let { route ->
+                                appState.navController.navigate(route) {
+                                    // Pop up to the start destination of the graph to
+                                    // avoid building up a large stack of destinations
+                                    // on the back stack as users select items
+                                    popUpTo(appState.navController.graph.findStartDestination().id) {
+                                        saveState = true
+                                    }
+                                    // Avoid multiple copies of the same destination when
+                                    // reselecting the same item
+                                    launchSingleTop = true
+                                    // Restore state when reselecting a previously selected item
+                                    restoreState = true
+                                }
+                            }
+                        }
                     )
                 }
             }
