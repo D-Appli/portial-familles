@@ -14,6 +14,7 @@ class FormMapper @Inject constructor() : Mapper<Forms, List<Form>> {
             throw DomainException.PageError("Unknown return code ${param.code_retour} on forms page")
 
         return param.accueils?.map { form ->
+            // forms are mapped here to only known ones
             val formId = FormId.entries.find {
                 it.id == form?.id_accueil
             }

@@ -8,5 +8,6 @@ data class Form(
 enum class FormId(val id: Int, val order: Int) {
     RESERVATION(42, 1),
     RECEIPTS(44, 2),
-    ACCOUNT(43, 3)
+    ACCOUNT(43, 3),
+    MY_CITY(2024, 4)
 }

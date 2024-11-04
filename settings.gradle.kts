@@ -25,9 +25,10 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
 include(":feature:identity")
 include(":feature:reservation")
+include(":feature:mycity")
+// core data modules
 include(":core:presentation")
 include(":core:kotlin")
-// core data modules
 include(":core:domain:usecase")
 include(":core:domain:model")
 include(":core:domain:irepository")

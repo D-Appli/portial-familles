@@ -44,7 +44,7 @@ fun PortailFamillesApp(
         bottomBar = {
             val isUserAuthenticated by appState.isUserAuthenticated.collectAsStateWithLifecycle()
             if (isUserAuthenticated) {
-                PortailFamillesNavBar()
+                PortailFamillesNavBar(appState)
             }
         }
     ) { padding ->
