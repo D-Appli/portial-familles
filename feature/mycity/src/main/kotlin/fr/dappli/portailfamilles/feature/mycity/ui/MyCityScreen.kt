@@ -19,6 +19,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import fr.dappli.portailfamilles.feature.mycity.presentation.model.MyCityScreenState
 import fr.dappli.portailfamilles.feature.mycity.presentation.viewmodel.MyCityScreenViewModel
 import fr.dappli.portailfamilles.feature.mycity.presentation.viewmodel.MyCityScreenViewModelImpl
+import fr.dappli.portailfamilles.feature.mycity.ui.component.MyCityCard
 
 @Composable
 fun MyCityScreen(
@@ -52,7 +53,9 @@ private fun BoxScope.RestaurantsView(state: MyCityScreenState.Content) {
                 item.title + item.address // TODO add unique item
             }
         ) { index, item ->
-            RestaurantCard(item)
+            with (item) {
+                MyCityCard(title, description, null, imageUrl) {}
+            }
             if (index > state.restaurants.size - LOAD_THRESHOLD && state.isLoading.not()) {
                 state.loadMoreItems(state.restaurants.size)
             }
