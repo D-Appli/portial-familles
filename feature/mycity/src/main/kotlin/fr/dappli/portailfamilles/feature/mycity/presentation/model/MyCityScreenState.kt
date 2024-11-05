@@ -13,6 +13,8 @@ sealed class MyCityScreenState : State {
     data object Error : MyCityScreenState()
 
     data class Content(
-        val restaurants: ImmutableList<Restaurant>
+        val isLoading: Boolean,
+        val restaurants: ImmutableList<Restaurant>,
+        val loadMoreItems: (offset: Int) -> Unit
     ) : MyCityScreenState()
 }
