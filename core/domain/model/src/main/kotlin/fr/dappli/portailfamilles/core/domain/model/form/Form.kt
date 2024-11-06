@@ -2,7 +2,8 @@ package fr.dappli.portailfamilles.core.domain.model.form
 
 data class Form(
     val formId: FormId,
-    val label: String
+    val label: String,
+    val categories: List<Category>
 )
 
 enum class FormId(val id: Int, val order: Int) {

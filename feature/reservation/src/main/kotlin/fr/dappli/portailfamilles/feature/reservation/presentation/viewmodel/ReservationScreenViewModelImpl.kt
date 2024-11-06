@@ -1,16 +1,13 @@
 package fr.dappli.portailfamilles.feature.reservation.presentation.viewmodel
 
 import dagger.hilt.android.lifecycle.HiltViewModel
-import fr.dappli.portailfamilles.core.data.api.UserDataSource
-import fr.dappli.portailfamilles.core.domain.usecase.GetRestaurantsUseCase
+import fr.dappli.portailfamilles.core.domain.usecase.GetReservationCategoriesUseCase
 import javax.inject.Inject
 
 @HiltViewModel
 class ReservationScreenViewModelImpl @Inject constructor(
-    _userDataSourceImpl: UserDataSource,
-    _usecase: GetRestaurantsUseCase,
+    _getReservationCategoriesUseCase: GetReservationCategoriesUseCase,
 ) : ReservationScreenViewModel() {
 
-    override val userDataSource: UserDataSource = _userDataSourceImpl
-    override val usecase: GetRestaurantsUseCase = _usecase
+    override val usecase: GetReservationCategoriesUseCase = _getReservationCategoriesUseCase
 }
