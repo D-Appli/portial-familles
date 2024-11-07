@@ -7,5 +7,6 @@ data class Form(
     val id_accueil: Int?,
     val libelle: String?,
     val order: String?,
-    val couleur: String?
+    val couleur: String?,
+    val themes: List<Theme>,
 )

@@ -1,5 +1,6 @@
 package fr.dappli.portailfamilles.ui
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.consumeWindowInsets
@@ -53,6 +54,7 @@ fun PortailFamillesApp(
                 .fillMaxSize()
                 .padding(padding)
                 .consumeWindowInsets(padding)
+                .background(MaterialTheme.colorScheme.secondaryContainer) // TODO add gradient background for the app
         ) {
             PortailFamillesNavHost(appState)
         }

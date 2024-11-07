@@ -13,7 +13,7 @@ class GetFormsUseCase @Inject constructor(
             .sortedBy {
                 it.formId.order
             }.toMutableList().apply {
-                add(Form(FormId.MY_CITY, MY_CITY_LABEL))
+                add(Form(FormId.MY_CITY, MY_CITY_LABEL, emptyList()))
             }.map {
                 val label = when (it.formId) {
                     FormId.RESERVATION -> RESERVATION_LABEL
