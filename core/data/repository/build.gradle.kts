@@ -27,4 +27,9 @@ dependencies {
     implementation(projects.core.kotlin)
 
     ksp(libs.hilt.compiler)
+
+    testImplementation(libs.junit)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.byte.buddy)
 }

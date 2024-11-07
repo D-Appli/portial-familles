@@ -15,7 +15,7 @@ class FormMapper @Inject constructor(
         if (param.code_retour != PageReturnCode.OK.name)
             throw DomainException.PageError("Unknown return code ${param.code_retour} on forms page")
 
-        return param.accueils?.map { form ->
+        return param.accueils?.mapNotNull { form ->
             // forms are mapped here to only known ones
             val formId = FormId.entries.find {
                 it.id == form?.id_accueil
@@ -29,6 +29,6 @@ class FormMapper @Inject constructor(
             } else {
                 null
             }
-        }?.filterNotNull() ?: emptyList()
+        } ?: emptyList()
     }
 }

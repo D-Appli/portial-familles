@@ -3,14 +3,14 @@ package fr.dappli.portailfamilles.core.data.remote
 import fr.dappli.portailfamilles.core.data.remote.network.NetworkImpl
 import fr.dappli.portailfamilles.core.data.remote.utils.mockEngineFromJson
 import io.mockk.mockk
-import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.test.runTest
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class FormsDataSourceTest {
 
     @Test
-    fun `verify FormsDataSourceImpl`() = runTest {
+    fun `verify getForms contains 4 labels`() = runTest {
         // given
         val userId = "user123"
         val network = NetworkImpl(
