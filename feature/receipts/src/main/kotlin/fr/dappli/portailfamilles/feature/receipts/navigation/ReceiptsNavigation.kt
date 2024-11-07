@@ -10,7 +10,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data object ReceiptsRoute
 
-fun NavController.navigateToReservation(navOptions: NavOptions? = null) = navigate(route = ReceiptsRoute, navOptions)
+fun NavController.navigateToReceipts(navOptions: NavOptions? = null) = navigate(route = ReceiptsRoute, navOptions)
 
 fun NavGraphBuilder.receiptsScreen() {
     composable<ReceiptsRoute> {

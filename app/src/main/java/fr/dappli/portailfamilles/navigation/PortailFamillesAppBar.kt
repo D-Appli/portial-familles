@@ -26,32 +26,27 @@ fun PortailFamillesAppBar(
     val stackEntry by appState.navController.currentBackStackEntryFlow.collectAsStateWithLifecycle(
         null
     )
-    val isTopLevelDestination = stackEntry?.destination?.route?.let { currentRoute ->
-        if (currentRoute == IdentityRoute::class.qualifiedName) {
-            null
-        } else {
-            TopLevelDestination.entries.find {
-                it.route.qualifiedName == currentRoute
-            } != null
-        }
-    }
+    val route = stackEntry?.destination?.route
+    val topLevelDestination = TopLevelDestination.entries.find { it.route.qualifiedName == route }
 
-    if (isTopLevelDestination != null) {
+    if (route != IdentityRoute::class.qualifiedName) {
         TopAppBar(
             colors = topAppBarColors(
                 containerColor = MaterialTheme.colorScheme.primaryContainer,
                 titleContentColor = MaterialTheme.colorScheme.primary,
             ),
             title = {
-                val title = if (isTopLevelDestination) {
-                    stringResource(R.string.app_name)
+                val title = if (topLevelDestination != null) {
+                    val res = topLevelDestination.screenNameResId
+                    stringResource(res)
                 } else {
-                    stackEntry?.arguments?.getString(NestedRoute::name.name) ?: stringResource(R.string.app_name)
+                    stackEntry?.arguments?.getString(NestedRoute::name.name)
+                        ?: stringResource(R.string.app_name)
                 }
                 Text(title)
             },
             navigationIcon = {
-                if (isTopLevelDestination.not()) {
+                if (topLevelDestination == null) {
                     IconButton(onClick = {
                         appState.navController.popBackStack()
                     }) {

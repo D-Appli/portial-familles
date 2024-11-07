@@ -44,6 +44,7 @@ dependencies {
     ksp(libs.hilt.compiler)
 
     // project libraries
+    implementation(projects.core.ui)
     implementation(projects.core.presentation)
     implementation(projects.core.domain.usecase)
     implementation(projects.core.data.repository)
