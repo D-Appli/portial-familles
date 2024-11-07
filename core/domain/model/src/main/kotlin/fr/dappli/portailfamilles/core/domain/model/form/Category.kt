@@ -7,7 +7,7 @@ data class Category(
 )
 
 data class SubCategory(
-    val id: String,
+    val id: Int,
     val name: String,
     val description: String,
     val startDate: String, // TODO could be converted to kotlinx LocalDate

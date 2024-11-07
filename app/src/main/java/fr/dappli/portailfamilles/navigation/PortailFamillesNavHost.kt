@@ -22,7 +22,9 @@ fun PortailFamillesNavHost(appState: PortailFamillesAppState) {
         startDestination = startDestination,
     ) {
         identityScreen(onSignedIn = navController::navigateToReservation)
-        reservationScreen()
+        reservationScreen { route ->
+            navController.navigate(route)
+        }
         myCityScreen()
     }
 }

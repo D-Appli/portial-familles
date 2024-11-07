@@ -14,14 +14,16 @@ class ThemeMapper @Inject constructor(
 
     override fun map(param: List<Theme>): List<Category> {
         return param.map {
-            val subCategories = it.subthemes?.map { subTheme ->
-                SubCategory(
-                    id = subTheme?.id ?: "",
-                    name = subTheme?.name?.titleCase() ?: "",
-                    description = subTheme?.description?.titleCase() ?: "",
-                    startDate = subTheme?.validate?.begin ?: "",
-                    endDate = subTheme?.validate?.end ?: "",
-                )
+            val subCategories = it.subthemes?.mapNotNull { subTheme ->
+                subTheme?.id?.let { id ->
+                    SubCategory(
+                        id = id,
+                        name = subTheme.name?.titleCase() ?: "",
+                        description = subTheme.description?.titleCase() ?: "",
+                        startDate = subTheme.validate?.begin ?: "",
+                        endDate = subTheme.validate?.end ?: "",
+                    )
+                }
             } ?: emptyList()
             Category(
                 categoryId = categoryIdMapper.map(it.name),
