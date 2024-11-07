@@ -17,12 +17,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import fr.dappli.portailfamilles.feature.reservation.R
 import fr.dappli.portailfamilles.feature.reservation.presentation.model.ReservationScreenState
 import fr.dappli.portailfamilles.feature.reservation.presentation.viewmodel.ReservationScreenViewModel
 import fr.dappli.portailfamilles.feature.reservation.presentation.viewmodel.ReservationScreenViewModelImpl
 import fr.dappli.portailfamilles.feature.reservation.ui.component.ReservationCard
-import kotlinx.collections.immutable.toImmutableList
 
 @Composable
 internal fun ReservationScreen(
@@ -45,6 +43,7 @@ internal fun ReservationScreen(
 @Composable
 private fun BoxScope.ReservationScreenContent(state: ReservationScreenState.Content) {
     val scrollState = rememberScrollState()
+    // We have a small amount of reservation items, so column with scroll state is fine
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -52,19 +51,11 @@ private fun BoxScope.ReservationScreenContent(state: ReservationScreenState.Cont
             .verticalScroll(scrollState),
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
-        state.restaurants.first().let { category ->
+        state.reservations.forEach {
             ReservationCard(
-                category.name,
-                R.drawable.school,
-                category.items.toImmutableList()
-            )
-        }
-
-        state.restaurants[1].let { category ->
-            ReservationCard(
-                category.name,
-                R.drawable.winter_vacations,
-                category.items.toImmutableList()
+                it.name,
+                it.imageResId,
+                it.subcategories
             )
         }
     }

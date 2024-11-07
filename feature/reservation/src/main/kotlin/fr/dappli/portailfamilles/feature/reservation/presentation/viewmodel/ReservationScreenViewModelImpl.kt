@@ -24,6 +24,7 @@ class ReservationScreenViewModelImpl @Inject constructor(
     init {
         viewModelScope.launch(dispatcherProvider.io) {
             try {
+                reducer.update(ReservationScreenAction.SetLoading)
                 val categories = getReservationCategoriesUseCase()
                 reducer.update(ReservationScreenAction.SetContent(categories, bindCallToAction()))
             } catch (e: Throwable) {

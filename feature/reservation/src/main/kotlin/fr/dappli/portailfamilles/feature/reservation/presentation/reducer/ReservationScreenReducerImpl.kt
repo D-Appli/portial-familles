@@ -1,16 +1,16 @@
 package fr.dappli.portailfamilles.feature.reservation.presentation.reducer
 
 import fr.dappli.portailfamilles.core.kotlin.coroutines.providers.DispatcherProvider
+import fr.dappli.portailfamilles.feature.reservation.presentation.mapper.ReservationScreenMapper
 import fr.dappli.portailfamilles.feature.reservation.presentation.model.ReservationScreenState
-import fr.dappli.portailfamilles.feature.reservation.presentation.model.ReservationScreenState.Content
 import fr.dappli.portailfamilles.feature.reservation.presentation.reducer.ReservationScreenAction.SetContent
 import fr.dappli.portailfamilles.feature.reservation.presentation.reducer.ReservationScreenAction.SetError
 import fr.dappli.portailfamilles.feature.reservation.presentation.reducer.ReservationScreenAction.SetLoading
-import kotlinx.collections.immutable.toImmutableList
 import javax.inject.Inject
 
 class ReservationScreenReducerImpl @Inject constructor(
     dispatcherProvider: DispatcherProvider,
+    private val mapper: ReservationScreenMapper,
 ) : ReservationScreenReducer(
     initialState = ReservationScreenState.None,
     dispatcherProvider = dispatcherProvider
@@ -32,9 +32,8 @@ class ReservationScreenReducerImpl @Inject constructor(
     }
 
     private fun onSetContent(action: SetContent, currentState: ReservationScreenState): ReservationScreenState {
-        return Content(
-            action.categories.toImmutableList(),
-            action.callToActions.onSubCategoryClick,
+        return mapper.map(
+            ReservationScreenMapper.Params(action.categories, action.callToActions)
         )
     }
 
