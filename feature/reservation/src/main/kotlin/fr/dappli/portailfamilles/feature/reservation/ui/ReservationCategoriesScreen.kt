@@ -23,8 +23,9 @@ import fr.dappli.portailfamilles.feature.reservation.presentation.viewmodel.Rese
 import fr.dappli.portailfamilles.feature.reservation.ui.component.ReservationCard
 
 @Composable
-internal fun ReservationScreen(
-    viewModel: ReservationScreenViewModel = hiltViewModel<ReservationScreenViewModelImpl>()
+internal fun ReservationCategoriesScreen(
+    viewModel: ReservationScreenViewModel = hiltViewModel<ReservationScreenViewModelImpl>(),
+    onSubCategoryClick: (Int) -> Unit
 ) {
     val state by viewModel.stateFlow.collectAsStateWithLifecycle()
     Box(
@@ -32,7 +33,10 @@ internal fun ReservationScreen(
         contentAlignment = Alignment.Center
     ) {
         when (val currentState = state) {
-            is ReservationScreenState.Content -> ReservationScreenContent(currentState)
+            is ReservationScreenState.Content -> ReservationScreenContent(
+                currentState,
+                onSubCategoryClick
+            )
             ReservationScreenState.Error -> Text("Error")
             ReservationScreenState.Loading -> CircularProgressIndicator()
             ReservationScreenState.None -> Unit
@@ -41,7 +45,10 @@ internal fun ReservationScreen(
 }
 
 @Composable
-private fun BoxScope.ReservationScreenContent(state: ReservationScreenState.Content) {
+private fun BoxScope.ReservationScreenContent(
+    state: ReservationScreenState.Content,
+    onSubCategoryClick: (Int) -> Unit
+) {
     val scrollState = rememberScrollState()
     // We have a small amount of reservation items, so column with scroll state is fine
     Column(
@@ -55,7 +62,8 @@ private fun BoxScope.ReservationScreenContent(state: ReservationScreenState.Cont
             ReservationCard(
                 it.name,
                 it.imageResId,
-                it.subcategories
+                it.subcategories,
+                onSubCategoryClick,
             )
         }
     }

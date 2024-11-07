@@ -10,7 +10,7 @@ data class Theme(
 
 @Serializable
 data class SubTheme(
-    val id: String?,
+    val id: Int?,
     val name: String?,
     val description: String?,
     val validate: Validate?

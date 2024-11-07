@@ -32,7 +32,8 @@ import kotlinx.collections.immutable.ImmutableList
 fun ReservationCard(
     name: String,
     @DrawableRes headerImageResId: Int,
-    subCategories: ImmutableList<SubCategory>
+    subCategories: ImmutableList<SubCategory>,
+    onSubCategoryClick: (Int) -> Unit
 ) {
     Column {
         Text(
@@ -50,7 +51,9 @@ fun ReservationCard(
                         .padding(top = 16.dp),
                     shape = RoundedCornerShape(8.dp),
                     elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-                    onClick = {}
+                    onClick = {
+                        onSubCategoryClick(subCategory.id)
+                    }
                 ) {
 
                     ListItem(

@@ -39,6 +39,6 @@ class ReservationScreenViewModelImpl @Inject constructor(
     )
 
     fun onSubCategoryClick(id: Int): Unit {
-        // TODO
+        // add tacking or add required actions
     }
 }

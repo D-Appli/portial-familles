@@ -8,6 +8,7 @@ import fr.dappli.portailfamilles.feature.indentity.navigation.IdentityRoute
 import fr.dappli.portailfamilles.feature.indentity.navigation.identityScreen
 import fr.dappli.portailfamilles.feature.mycity.navigation.myCityScreen
 import fr.dappli.portailfamilles.feature.reservation.navigation.ReservationRoute
+import fr.dappli.portailfamilles.feature.reservation.navigation.ReservationSubCategoryRoute
 import fr.dappli.portailfamilles.feature.reservation.navigation.navigateToReservation
 import fr.dappli.portailfamilles.feature.reservation.navigation.reservationScreen
 import fr.dappli.portailfamilles.ui.PortailFamillesAppState
@@ -22,7 +23,9 @@ fun PortailFamillesNavHost(appState: PortailFamillesAppState) {
         startDestination = startDestination,
     ) {
         identityScreen(onSignedIn = navController::navigateToReservation)
-        reservationScreen()
+        reservationScreen {
+            navController.navigate(ReservationSubCategoryRoute)
+        }
         myCityScreen()
     }
 }

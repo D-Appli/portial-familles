@@ -32,6 +32,10 @@ fun PortailFamillesApp(
         contentColor = MaterialTheme.colorScheme.onBackground,
         contentWindowInsets = WindowInsets(0, 0, 0, 0),
         topBar = {
+
+            val stackEntry by appState.navController.currentBackStackEntryFlow.collectAsStateWithLifecycle(null)
+            println("andrei stackEntry=$stackEntry")
+
             TopAppBar(
                 colors = topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
