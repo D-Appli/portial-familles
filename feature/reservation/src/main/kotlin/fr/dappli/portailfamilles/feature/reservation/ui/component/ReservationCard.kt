@@ -38,9 +38,9 @@ fun ReservationCard(
 ) {
     Column {
         Text(
-            modifier = Modifier.padding(end = 8.dp),
+            modifier = Modifier.padding(bottom = 8.dp),
             text = name,
-            style = MaterialTheme.typography.headlineSmall
+            style = MaterialTheme.typography.titleLarge
         )
         HeaderImage(headerImageResId)
 
