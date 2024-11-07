@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Portail Familles</string>
+    <string name="reservation_screen_name">Reservations</string>
+    <string name="receipt_screen_name">My Receipts</string>
+    <string name="account_screen_name">Account</string>
+    <string name="my_city_screen_name">My City</string>
 </resources>

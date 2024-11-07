@@ -5,6 +5,7 @@ import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.NavHost
 import fr.dappli.portailfamilles.feature.indentity.navigation.IdentityRoute
+import fr.dappli.portailfamilles.feature.indentity.navigation.accountScreen
 import fr.dappli.portailfamilles.feature.indentity.navigation.identityScreen
 import fr.dappli.portailfamilles.feature.mycity.navigation.myCityScreen
 import fr.dappli.portailfamilles.feature.receipts.navigation.receiptsScreen
@@ -26,6 +27,7 @@ fun PortailFamillesNavHost(appState: PortailFamillesAppState) {
         identityScreen(onSignedIn = navController::navigateToReservation)
         reservationScreen(onSubCategoryClick = navController::navigateToReservationSubCategory)
         receiptsScreen()
+        accountScreen()
         myCityScreen()
     }
 }
