@@ -19,6 +19,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import fr.dappli.portailfamilles.R
 import fr.dappli.portailfamilles.feature.mycity.navigation.MyCityRoute
+import fr.dappli.portailfamilles.feature.receipts.navigation.ReceiptsRoute
 import fr.dappli.portailfamilles.feature.reservation.navigation.ReservationRoute
 import fr.dappli.portailfamilles.presentation.navbar.model.NavBarState
 import fr.dappli.portailfamilles.presentation.navbar.viewmodel.NavBarViewModel
@@ -53,7 +54,7 @@ fun PortailFamillesNavBar(
             )
             val formRoutes = listOf(
                 ReservationRoute,
-                null,
+                ReceiptsRoute,
                 null,
                 MyCityRoute,
             )

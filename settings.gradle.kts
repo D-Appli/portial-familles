@@ -24,6 +24,7 @@ rootProject.name = "PortailFamilles"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
 include(":feature:identity")
+include(":feature:receipts")
 include(":feature:reservation")
 include(":feature:mycity")
 // core data modules

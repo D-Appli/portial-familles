@@ -12,15 +12,23 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data object ReservationRoute
+
 @Serializable
 data object ReservationCategoriesRoute
+
 @Serializable
 data class ReservationSubCategoryRoute(
     val subcategoryId: Int,
     override val name: String
-): NestedRoute
+) : NestedRoute
 
-fun NavController.navigateToReservation(navOptions: NavOptions? = null) = navigate(route = ReservationRoute, navOptions)
+fun NavController.navigateToReservation(navOptions: NavOptions? = null) =
+    navigate(route = ReservationRoute, navOptions)
+
+fun NavController.navigateToReservationSubCategory(
+    route: ReservationSubCategoryRoute,
+    navOptions: NavOptions? = null
+) = navigate(route = route, navOptions)
 
 fun NavGraphBuilder.reservationScreen(
     onSubCategoryClick: (ReservationSubCategoryRoute) -> Unit

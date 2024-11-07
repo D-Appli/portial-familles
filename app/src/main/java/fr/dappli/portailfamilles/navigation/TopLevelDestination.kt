@@ -4,6 +4,7 @@ import androidx.annotation.DrawableRes
 import fr.dappli.portailfamilles.R
 import fr.dappli.portailfamilles.core.domain.model.form.FormId
 import fr.dappli.portailfamilles.feature.mycity.navigation.MyCityRoute
+import fr.dappli.portailfamilles.feature.receipts.navigation.ReceiptsRoute
 import fr.dappli.portailfamilles.feature.reservation.navigation.ReservationCategoriesRoute
 import fr.dappli.portailfamilles.feature.reservation.navigation.ReservationRoute
 import kotlin.reflect.KClass
@@ -26,7 +27,7 @@ enum class TopLevelDestination(
         FormId.RECEIPTS,
         R.drawable.ic_receipt_filled,
         R.drawable.ic_receipt_outlined,
-        ReservationRoute::class
+        ReceiptsRoute::class
     ),
     ACCOUNT(
         FormId.ACCOUNT,
