@@ -26,6 +26,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import fr.dappli.portailfamilles.core.domain.model.form.SubCategory
+import fr.dappli.portailfamilles.feature.reservation.navigation.ReservationSubCategoryRoute
 import kotlinx.collections.immutable.ImmutableList
 
 @Composable
@@ -33,7 +34,7 @@ fun ReservationCard(
     name: String,
     @DrawableRes headerImageResId: Int,
     subCategories: ImmutableList<SubCategory>,
-    onSubCategoryClick: (Int) -> Unit
+    onSubCategoryClick: (ReservationSubCategoryRoute) -> Unit
 ) {
     Column {
         Text(
@@ -52,7 +53,7 @@ fun ReservationCard(
                     shape = RoundedCornerShape(8.dp),
                     elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
                     onClick = {
-                        onSubCategoryClick(subCategory.id)
+                        onSubCategoryClick(ReservationSubCategoryRoute(subCategory.id, subCategory.name))
                     }
                 ) {
 

@@ -3,12 +3,10 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.hilt)
-    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "fr.dappli.portailfamilles.feature.reservation"
+    namespace = "fr.dappli.portailfamilles.core.ui"
     // TODO move to common gradle file
     compileSdk = 34
 
@@ -34,21 +32,5 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.material3)
-    implementation(libs.coil.kt.compose)
-    implementation(libs.hilt.android)
-    implementation(libs.kotlinx.serialization.json)
-    implementation(libs.ktor.client.okhttp)
-    implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.androidx.navigation.compose)
-    implementation(libs.androidx.hilt.navigation.compose)
-    implementation(libs.kotlinx.collections.immutable)
-
-    ksp(libs.hilt.compiler)
-
-    // project libraries
-    implementation(projects.core.ui)
-    implementation(projects.core.presentation)
-    implementation(projects.core.domain.usecase)
-    implementation(projects.core.data.remote)
-    implementation(projects.core.kotlin)
 }

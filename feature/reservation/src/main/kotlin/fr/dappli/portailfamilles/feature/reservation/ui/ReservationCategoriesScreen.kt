@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import fr.dappli.portailfamilles.feature.reservation.navigation.ReservationSubCategoryRoute
 import fr.dappli.portailfamilles.feature.reservation.presentation.model.ReservationScreenState
 import fr.dappli.portailfamilles.feature.reservation.presentation.viewmodel.ReservationScreenViewModel
 import fr.dappli.portailfamilles.feature.reservation.presentation.viewmodel.ReservationScreenViewModelImpl
@@ -25,7 +26,7 @@ import fr.dappli.portailfamilles.feature.reservation.ui.component.ReservationCar
 @Composable
 internal fun ReservationCategoriesScreen(
     viewModel: ReservationScreenViewModel = hiltViewModel<ReservationScreenViewModelImpl>(),
-    onSubCategoryClick: (Int) -> Unit
+    onSubCategoryClick: (ReservationSubCategoryRoute) -> Unit
 ) {
     val state by viewModel.stateFlow.collectAsStateWithLifecycle()
     Box(
@@ -47,7 +48,7 @@ internal fun ReservationCategoriesScreen(
 @Composable
 private fun BoxScope.ReservationScreenContent(
     state: ReservationScreenState.Content,
-    onSubCategoryClick: (Int) -> Unit
+    onSubCategoryClick: (ReservationSubCategoryRoute) -> Unit
 ) {
     val scrollState = rememberScrollState()
     // We have a small amount of reservation items, so column with scroll state is fine

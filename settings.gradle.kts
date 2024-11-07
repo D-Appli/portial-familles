@@ -27,6 +27,7 @@ include(":feature:identity")
 include(":feature:reservation")
 include(":feature:mycity")
 // core data modules
+include(":core:ui")
 include(":core:presentation")
 include(":core:kotlin")
 include(":core:domain:usecase")
