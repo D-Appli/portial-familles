@@ -10,56 +10,40 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.annotation.Keep
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBars
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.viewinterop.AndroidView
 
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
 fun SignInForm(onTokenReceived: (String, String) -> Unit) {
-    // Convert the system status bar height to Dp
-    val statusBarHeight = with(LocalDensity.current) {
-        WindowInsets.statusBars.getTop(this).toDp()
-    }
-    Box(
+    AndroidView(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = statusBarHeight)
-    ) {
-
-        AndroidView(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(color = MaterialTheme.colorScheme.surface),
-            factory = { context ->
-                WebView(context).apply {
-                    layoutParams = ViewGroup.LayoutParams(
-                        ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.MATCH_PARENT
-                    )
-                    scrollBarStyle = View.SCROLLBARS_INSIDE_OVERLAY
-                    webViewClient = SiteWebViewClient()
-                    with(settings) {
-                        loadsImagesAutomatically = true
-                        javaScriptEnabled = true
-                        domStorageEnabled = true
-                        textZoom = 100
-                    }
-                    addJavascriptInterface(WebCallback(onTokenReceived), PLATFORM)
+            .background(color = MaterialTheme.colorScheme.surface),
+        factory = { context ->
+            WebView(context).apply {
+                layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT
+                )
+                scrollBarStyle = View.SCROLLBARS_INSIDE_OVERLAY
+                webViewClient = SiteWebViewClient()
+                with(settings) {
+                    loadsImagesAutomatically = true
+                    javaScriptEnabled = true
+                    domStorageEnabled = true
+                    textZoom = 100
                 }
-            },
-            update = { webView ->
-                webView.loadUrl(LOGIN_URL)
+                addJavascriptInterface(WebCallback(onTokenReceived), PLATFORM)
             }
-        )
-    }
+        },
+        update = { webView ->
+            webView.loadUrl(LOGIN_URL)
+        }
+    )
 }
 
 private class SiteWebViewClient : WebViewClient() {
