@@ -16,6 +16,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -37,7 +38,7 @@ fun WorkInProgress() {
         enter = fadeIn(tween(1000)) + expandVertically(tween(durationMillis = 1000)),
         exit = fadeOut(tween(1000)) + shrinkVertically(tween(durationMillis = 1000)),
     ) {
-        var columnHeight by remember { mutableStateOf(0) }
+        var columnHeight by remember { mutableIntStateOf(0) }
         Column(
             Modifier
                 .fillMaxSize()
@@ -50,7 +51,7 @@ fun WorkInProgress() {
         ) {
             Image(
                 modifier = Modifier
-                    .height((columnHeight / 3).dp)
+                    .height((columnHeight / 4).dp)
                     .clip(
                         RoundedCornerShape(8.dp)
                     ),

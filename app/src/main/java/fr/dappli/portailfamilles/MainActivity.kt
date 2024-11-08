@@ -21,6 +21,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             val appState = rememberPortailFamillesAppState(isUserAuthenticatedUseCase)
+
+            println("andrei navController: ${appState.navController}, destination: ${appState.currentDestination}")
+//            println("andrei previousBackStackEntry=${appState.navController.previousBackStackEntry}")
             PortailFamillesApp(appState)
         }
     }

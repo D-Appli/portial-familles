@@ -16,14 +16,19 @@ class NavBarViewModelImpl @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val getFormsUseCase: GetFormsUseCase,
     reducer: NavBarReducer,
-): NavBarViewModel() {
+) : NavBarViewModel() {
 
     override val stateFlow: StateFlow<NavBarState> = reducer.stateFlow
 
     init {
         viewModelScope.launch(dispatcherProvider.io) {
-            val forms = getFormsUseCase()
-            reducer.update(NavBarAction.SetContent(forms))
+            try {
+                val forms = getFormsUseCase()
+                reducer.update(NavBarAction.SetContent(forms))
+            } catch (e: Throwable) {
+                println("getFormsUseCase error $e")
+                reducer.update(NavBarAction.SetError)
+            }
         }
     }
 }

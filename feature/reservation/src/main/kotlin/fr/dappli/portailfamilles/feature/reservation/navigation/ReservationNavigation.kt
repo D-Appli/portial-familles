@@ -22,8 +22,10 @@ data class ReservationSubCategoryRoute(
     override val name: String
 ) : NestedRoute
 
-fun NavController.navigateToReservation(navOptions: NavOptions? = null) =
+fun NavController.navigateToReservation(navOptions: NavOptions? = null) {
+    println("andrei navigateToReservation -->")
     navigate(route = ReservationRoute, navOptions)
+}
 
 fun NavController.navigateToReservationSubCategory(
     route: ReservationSubCategoryRoute,

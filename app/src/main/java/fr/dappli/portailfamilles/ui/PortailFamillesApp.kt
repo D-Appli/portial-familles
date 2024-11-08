@@ -28,18 +28,15 @@ fun PortailFamillesApp(
             PortailFamillesAppBar(appState)
         },
         bottomBar = {
-            val isUserAuthenticated by appState.isUserAuthenticated.collectAsStateWithLifecycle()
-            if (isUserAuthenticated) {
-                PortailFamillesNavBar(appState)
-            }
+            PortailFamillesNavBar(appState)
         }
     ) { padding ->
         Column(
             Modifier
                 .fillMaxSize()
-                .padding(padding)
+//                .padding(padding)
                 .consumeWindowInsets(padding)
-                .background(MaterialTheme.colorScheme.secondaryContainer) // TODO add gradient background for the app
+                .background(MaterialTheme.colorScheme.secondaryContainer)
         ) {
             PortailFamillesNavHost(appState)
         }
