@@ -4,8 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.navigation.NavDestination
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import fr.dappli.portailfamilles.core.domain.usecase.IsUserAuthenticatedUseCase
@@ -36,6 +38,9 @@ class PortailFamillesAppState(
     coroutineScope: CoroutineScope,
     val navController: NavHostController,
 ) {
+    val currentDestination: NavDestination?
+        @Composable get() = navController
+            .currentBackStackEntryAsState().value?.destination
 
     val isUserAuthenticated: StateFlow<Boolean> = isUserAuthenticatedUseCase()
         .stateIn(
@@ -47,12 +52,8 @@ class PortailFamillesAppState(
     fun navigateToTopLevelDestination(topLevelDestination: TopLevelDestination) {
         with(navController) {
             val topLevelNavOptions = navOptions {
-                // Pop up to the start destination of the graph to
-                // avoid building up a large stack of destinations
-                // on the back stack as users select items
-                popUpTo(navController.graph.findStartDestination().id) {
-                    saveState = true
-                }
+                // close the app when navigate back from the top destination
+                popUpTo(0)
                 // Avoid multiple copies of the same destination when
                 // reselecting the same item
                 launchSingleTop = true

@@ -18,6 +18,8 @@ class NavBarReducerImpl @Inject constructor(
                 }.subList(0, MAX_ITEMS).toImmutableList()
                 NavBarState.Content(items)
             }
+
+            NavBarAction.SetError -> NavBarState.None
         }
     }
 
