@@ -51,4 +51,12 @@ dependencies {
     implementation(projects.core.domain.usecase)
     implementation(projects.core.data.remote)
     implementation(projects.core.kotlin)
+
+    // test
+    testImplementation(libs.junit)
+    testImplementation(libs.mockk)
+    testImplementation(libs.ktor.client.mock)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.byte.buddy)
+    testImplementation(libs.turbine)
 }
