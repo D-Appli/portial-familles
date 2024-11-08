@@ -24,10 +24,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import fr.dappli.portailfamilles.core.domain.model.form.SubCategory
+import fr.dappli.portailfamilles.feature.reservation.R
 import fr.dappli.portailfamilles.feature.reservation.navigation.ReservationSubCategoryRoute
 import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.toImmutableList
 
 @Composable
 fun ReservationCard(
@@ -53,7 +56,12 @@ fun ReservationCard(
                     shape = RoundedCornerShape(8.dp),
                     elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
                     onClick = {
-                        onSubCategoryClick(ReservationSubCategoryRoute(subCategory.id, subCategory.name))
+                        onSubCategoryClick(
+                            ReservationSubCategoryRoute(
+                                subCategory.id,
+                                subCategory.name
+                            )
+                        )
                     }
                 ) {
 
@@ -111,4 +119,22 @@ private fun HeaderImage(
         painter = painterResource(iconResId),
         contentDescription = null,
     )
+}
+
+@Preview
+@Composable
+private fun ReservationCardPreview() {
+    ReservationCard(
+        name = "Péri-scolaire",
+        R.drawable.school,
+        listOf(
+            SubCategory(
+                id = 0,
+                name = "Décembre 2024",
+                description = "Cantine, garderie, accompagnements aux lecons",
+                startDate = "01/11/2024",
+                endDate = "31/11/2024"
+            )
+        ).toImmutableList()
+    ) {}
 }
