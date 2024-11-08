@@ -9,10 +9,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import fr.dappli.portailfamilles.navigation.PortailFamillesAppBar
 import fr.dappli.portailfamilles.navigation.PortailFamillesNavBar
 import fr.dappli.portailfamilles.navigation.PortailFamillesNavHost
@@ -24,6 +22,7 @@ fun PortailFamillesApp(
     Scaffold(
         containerColor = Color.Transparent,
         contentColor = MaterialTheme.colorScheme.onBackground,
+        contentWindowInsets = WindowInsets(0, 0, 0, 0),
         topBar = {
             PortailFamillesAppBar(appState)
         },
@@ -34,7 +33,7 @@ fun PortailFamillesApp(
         Column(
             Modifier
                 .fillMaxSize()
-//                .padding(padding)
+                .padding(padding)
                 .consumeWindowInsets(padding)
                 .background(MaterialTheme.colorScheme.secondaryContainer)
         ) {

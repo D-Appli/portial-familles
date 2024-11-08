@@ -23,7 +23,6 @@ data class ReservationSubCategoryRoute(
 ) : NestedRoute
 
 fun NavController.navigateToReservation(navOptions: NavOptions? = null) {
-    println("andrei navigateToReservation -->")
     navigate(route = ReservationRoute, navOptions)
 }
 

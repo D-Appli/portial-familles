@@ -31,9 +31,7 @@ fun PortailFamillesNavBar(
     viewModel: NavBarViewModel = hiltViewModel<NavBarViewModelImpl>()
 ) {
     val currentDestination = appState.currentDestination
-    println("andrei currentDestination?.route=${currentDestination?.route}")
     val topLevelDestination = TopLevelDestination.entries.find { currentDestination?.hasRoute(it.route) ?: false }
-    println("andrei isTopLevelDestination = $topLevelDestination")
     AnimatedVisibility(
         visible = topLevelDestination != null,
         enter = fadeIn(tween(1000)) + expandVertically(tween(durationMillis = 1000)),
